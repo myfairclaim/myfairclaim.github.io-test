@@ -651,10 +651,10 @@
                     <div class="form-group">
                         <label>Vehicle Identification Number (VIN)</label>
                         <div class="vin-input-group">
-                            <input type="text" id="vin" placeholder="1HGBH41JXMN109186" maxlength="17" style="padding-right: 120px;">
+                            <input type="text" id="vin" placeholder="1FTFW1EG1HFB76164" maxlength="17" style="padding-right: 120px;">
                             <button type="button" class="vin-decode-btn" onclick="decodeVIN()">Decode VIN</button>
                         </div>
-                        <small style="color: var(--gray-600); margin-top: 4px;">17-character VIN decodes automatically</small>
+                        <small style="color: var(--gray-600); margin-top: 4px;">Free NHTSA database • 17-character VIN auto-fills vehicle details</small>
                     </div>
                 </div>
 
@@ -751,7 +751,7 @@
             return MARKETCHECK_API_KEY;
         }
 
-        // VIN Decoder
+        // VIN Decoder using Free NHTSA API (MarketCheck VIN decoder requires paid tier)
         async function decodeVIN() {
             const vin = document.getElementById('vin').value.trim().toUpperCase();
             
@@ -760,44 +760,51 @@
                 return;
             }
 
-            const apiKey = getApiKey();
-
             try {
                 showLoading(true);
                 
-                const url = `https://api.marketcheck.com/v2/decode/car/vin/${vin}?api_key=${apiKey}`;
-                console.log('Decoding VIN:', vin);
-                console.log('API URL:', url.replace(apiKey, 'API_KEY_HIDDEN'));
+                // Use free NHTSA VIN decoder (no API key required)
+                const url = `https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${vin}?format=json`;
+                console.log('Decoding VIN with NHTSA:', vin);
                 
-                const response = await fetch(url, { 
-                    method: 'GET', 
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                console.log('Response status:', response.status);
-                console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+                const response = await fetch(url);
 
                 if (!response.ok) {
-                    const errorText = await response.text();
-                    console.error('API Error Response:', errorText);
-                    throw new Error(`API returned status ${response.status}: ${errorText}`);
+                    throw new Error(`API returned status ${response.status}`);
                 }
 
                 const data = await response.json();
-                console.log('VIN Decode Success:', data);
+                console.log('NHTSA VIN Decode Response:', data);
+                
+                // Parse NHTSA response format
+                const results = data.Results;
+                const getValue = (varName) => {
+                    const item = results.find(r => r.Variable === varName);
+                    return item && item.Value ? item.Value : '';
+                };
+                
+                const year = getValue('Model Year');
+                const make = getValue('Make');
+                const model = getValue('Model');
+                const trim = getValue('Trim');
                 
                 // Populate form fields
-                if (data.year) document.getElementById('year').value = data.year;
-                if (data.make) document.getElementById('make').value = data.make;
-                if (data.model) document.getElementById('model').value = data.model;
-                if (data.trim) document.getElementById('trim').value = data.trim;
+                if (year) document.getElementById('year').value = year;
+                if (make) document.getElementById('make').value = make;
+                if (model) document.getElementById('model').value = model;
+                if (trim) document.getElementById('trim').value = trim;
                 
-                showToast('✓ VIN decoded successfully!');
+                if (!year || !make || !model) {
+                    showError('VIN decoded but some information is missing. Please verify the fields below.');
+                } else {
+                    showToast('✓ VIN decoded successfully via NHTSA database!');
+                }
+                
                 showLoading(false);
                 
             } catch (error) {
                 console.error('VIN Decode Error:', error);
-                showError(`Failed to decode VIN: ${error.message}. Please check the VIN or try manual entry.`);
+                showError(`Failed to decode VIN: ${error.message}. Please use manual entry below.`);
                 showLoading(false);
             }
         }
