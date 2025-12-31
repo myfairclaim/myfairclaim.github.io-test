@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<!-- MyFairClaim Premium Tools - Fair Claim Response Playbook™ v2.0 | Last Updated: 2026-12-25 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyFairClaim Premium Insurance Response Guide (IRG) - Professional response templates and phone scripts for handling insurance company tactics">
+    <meta property="og:title" content="Insurance Response Guide (IRG) - MyFairClaim Premium">
+    <meta property="og:description" content="Know their tactics. Master your response with professional templates and phone scripts.">
+    <meta property="og:image" content="https://myfairclaim.github.io/logo.png">
+    <link rel="icon" type="image/png" href="https://myfairclaim.github.io/logo.png">
+    <link rel="apple-touch-icon" href="https://myfairclaim.github.io/logo.png">
+    <link rel="canonical" href="https://tools.myfairclaim.com/fair-claim-response-playbook">
+    <title>Insurance Response Guide (IRG) - MyFairClaim Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+            line-height: 1.6; 
+            color: #1e293b; 
+            background: #f8fafc; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* THICK GOLD PREMIUM BANNER - Matching CFG structure but gold colors */
+        .tier-badge {
+            background: rgba(0, 0, 0, 0.08);
+            color: #78350f;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-align: center;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .header {
+            position: relative; 
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%); 
+            padding: 20px 30px 15px; 
+            border-bottom: 4px solid #f59e0b;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 100%);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .header-container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+        }
+        
+        .logo { 
+            width: 200px; 
+            height: auto; 
+            flex-shrink: 0;
+        }
+        
+        .header-text {
+            flex: 1;
+            padding-top: 10px;
+        }
+        
+        .header h1 { 
+            font-size: 2.2em; 
+            font-weight: 700; 
+            color: #0f172a; 
+            margin-bottom: 12px; 
+            letter-spacing: -0.5px; 
+            line-height: 1.2;
+        }
+        
+        .tool-subtitle { 
+            color: #1e293b; 
+            font-size: 1.1em; 
+            font-weight: 600; 
+            margin-bottom: 15px; 
+        }
+        
+        .tool-description { 
+            color: #475569; 
+            font-size: 1em; 
+            line-height: 1.6;
+            max-width: 800px;
+        }
+        
+        /* TABS - Exact CFG button styling */
+        .tabs-container { 
+            background: white; 
+            border-bottom: 2px solid #e2e8f0; 
+            padding: 20px; 
+            overflow-x: auto; 
+        }
+        
+        .tabs { 
+            display: flex; 
+            gap: 12px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            flex-wrap: wrap; 
+        }
+        
+        .tab { 
+            flex: 1; 
+            min-width: 150px; 
+            padding: 16px 24px; 
+            background: white; 
+            border: 2px solid #cbd5e1; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 15px; 
+            font-weight: 700; 
+            color: #475569; 
+            transition: all 0.2s ease; 
+            text-align: center; 
+            font-family: 'Outfit', sans-serif; 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+        }
+        
+        .tab:hover { 
+            background: #f8fafc; 
+            border-color: #3b82f6; 
+            color: #3b82f6; 
+            transform: translateY(-1px); 
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.1); 
+        }
+        
+        .tab.active { 
+            background: #3b82f6; 
+            color: white; 
+            border-color: #3b82f6; 
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25); 
+        }
+        
+        /* CONTENT AREA */
+        .tab-content { 
+            display: none; 
+            padding: 40px 20px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        
+        .tab-content.active { display: block; }
+        
+        .section-header { 
+            font-size: 2em; 
+            font-weight: 800; 
+            color: #0f172a; 
+            margin-bottom: 10px; 
+        }
+        
+        .section-subheader { 
+            font-size: 1.1em; 
+            color: #64748b; 
+            margin-bottom: 30px; 
+        }
+        
+        /* TIMELINE BOXES - Collapsible */
+        .timeline-box { 
+            background: white; 
+            border: 2px solid #e2e8f0; 
+            border-left: 4px solid #3b82f6; 
+            border-radius: 8px; 
+            padding: 0;
+            margin-bottom: 20px; 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+            overflow: hidden;
+        }
+        
+        .timeline-day { 
+            font-size: 1.3em; 
+            font-weight: 700; 
+            color: #3b82f6; 
+            padding: 20px 24px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+        
+        .timeline-day:hover {
+            background: #f8fafc;
+        }
+        
+        .timeline-day::after {
+            content: '▼';
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-box.collapsed .timeline-day::after {
+            transform: rotate(-90deg);
+        }
+        
+        .timeline-content { 
+            color: #475569; 
+            line-height: 1.8; 
+            padding: 0 24px 24px 24px;
+            max-height: 1000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        
+        .timeline-box.collapsed .timeline-content {
+            max-height: 0;
+            padding: 0 24px;
+        }
+        
+        .timeline-content ul { 
+            margin-left: 24px; 
+            margin-top: 12px; 
+        }
+        
+        /* TRACKER BOXES - Collapsible */
+        .tracker-box { 
+            background: white; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 8px; 
+            padding: 0;
+            margin-bottom: 30px; 
+            overflow: hidden;
+        }
+        
+        .tracker-header { 
+            font-size: 1.5em; 
+            font-weight: 700; 
+            color: #0f172a; 
+            padding: 24px 30px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+        
+        .tracker-header:hover {
+            background: #f8fafc;
+        }
+        
+        .tracker-header::after {
+            content: '▼';
+            font-size: 0.7em;
+            transition: transform 0.3s ease;
+        }
+        
+        .tracker-box.collapsed .tracker-header::after {
+            transform: rotate(-90deg);
+        }
+        
+        .tracker-content { 
+            padding: 0 30px 30px 30px;
+            max-height: 3000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        
+        .tracker-box.collapsed .tracker-content {
+            max-height: 0;
+            padding: 0 30px;
+        }
+        
+        /* TIME SLOT BUTTONS */
+        .time-slot-btn:hover {
+            background: #eff6ff !important;
+            border-color: #3b82f6 !important;
+        }
+        
+        @media (max-width: 768px) {
+            #timeSlots {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+        
+        /* CONFETTI CANVAS */
+        #confettiCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .timeline-content li { 
+            margin-bottom: 8px; 
+        }
+        
+        /* TACTIC CARDS */
+        .tactic-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            margin-top: 30px; 
+        }
+        
+        .tactic-card { 
+            background: white; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 8px; 
+            padding: 24px; 
+            cursor: pointer; 
+            transition: all 0.2s ease; 
+        }
+        
+        .tactic-card:hover { 
+            border-color: #3b82f6; 
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15); 
+            transform: translateY(-2px); 
+        }
+        
+        .tactic-card.selected { 
+            border-color: #3b82f6; 
+            border-width: 3px; 
+            background: #eff6ff; 
+        }
+        
+        .tactic-number { 
+            display: inline-block; 
+            width: 36px; 
+            height: 36px; 
+            background: #3b82f6; 
+            color: white; 
+            border-radius: 50%; 
+            text-align: center; 
+            line-height: 36px; 
+            font-weight: 700; 
+            margin-bottom: 12px; 
+        }
+        
+        .tactic-title { 
+            font-size: 1.2em; 
+            font-weight: 700; 
+            color: #0f172a; 
+            margin-bottom: 12px; 
+        }
+        
+        .tactic-description { 
+            color: #64748b; 
+            font-size: 0.95em; 
+            line-height: 1.6; 
+        }
+        
+        /* RESPONSE SECTION */
+        .response-section { 
+            display: none; 
+            background: white; 
+            border: 3px solid #3b82f6; 
+            border-radius: 8px; 
+            padding: 32px; 
+            margin-top: 30px; 
+        }
+        
+        .response-section.active { display: block; }
+        
+        /* FORMAT TABS */
+        .format-tabs { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 24px; 
+            flex-wrap: wrap; 
+        }
+        
+        .format-tab { 
+            padding: 12px 24px; 
+            background: #f1f5f9; 
+            border: 2px solid #cbd5e1; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            color: #475569; 
+            transition: all 0.2s ease; 
+            font-family: 'Outfit', sans-serif; 
+        }
+        
+        .format-tab:hover { 
+            background: #e2e8f0; 
+            border-color: #3b82f6; 
+        }
+        
+        .format-tab.active { 
+            background: #3b82f6; 
+            color: white; 
+            border-color: #3b82f6; 
+        }
+        
+        .response-content { display: none; }
+        .response-content.active { display: block; }
+        
+        /* OUTPUT AREA */
+        .output-area { 
+            background: #f8fafc; 
+            border: 2px solid #cbd5e1; 
+            border-radius: 6px; 
+            padding: 24px; 
+            margin: 20px 0; 
+            font-family: 'Courier New', monospace; 
+            font-size: 14px; 
+            line-height: 1.8; 
+            white-space: pre-wrap; 
+            max-height: 600px; 
+            overflow-y: auto; 
+            color: #0f172a; 
+        }
+        
+        /* BUTTONS */
+        .btn { 
+            padding: 14px 28px; 
+            border: none; 
+            border-radius: 6px; 
+            font-size: 15px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.2s ease; 
+            font-family: 'Outfit', sans-serif; 
+        }
+        
+        .btn-primary { 
+            background: #3b82f6; 
+            color: white; 
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2); 
+        }
+        
+        .btn-primary:hover { 
+            background: #2563eb; 
+            transform: translateY(-1px); 
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3); 
+        }
+        
+        .btn-secondary { 
+            background: #64748b; 
+            color: white; 
+            margin-right: 10px; 
+            margin-bottom: 10px; 
+        }
+        
+        .btn-secondary:hover { 
+            background: #475569; 
+        }
+        
+        /* ALERTS */
+        .alert { 
+            padding: 16px 20px; 
+            border-radius: 8px; 
+            margin-bottom: 24px; 
+            border-left: 4px solid; 
+        }
+        
+        .alert-info { 
+            background: #eff6ff; 
+            border-color: #3b82f6; 
+            color: #1e40af; 
+        }
+        
+        .alert-warning { 
+            background: #fef3c7; 
+            border-color: #f59e0b; 
+            color: #92400e; 
+        }
+        
+        .alert-success { 
+            background: #ecfdf5; 
+            border-color: #10b981; 
+            color: #065f46; 
+        }
+        
+        /* FOOTER */
+        .footer { 
+            background: #0f172a; 
+            color: #e2e8f0; 
+            padding: 40px 20px; 
+            margin-top: 60px; 
+        }
+        
+        .footer-content { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 1fr auto; 
+            gap: 40px; 
+            align-items: start; 
+        }
+        
+        .footer-left h3 { 
+            margin-bottom: 12px; 
+            color: white; 
+            font-weight: 700; 
+        }
+        
+        .footer-left p { 
+            margin-bottom: 8px; 
+            color: #94a3b8; 
+        }
+        
+        .footer a { 
+            color: #60a5fa; 
+            text-decoration: none; 
+        }
+        
+        .footer a:hover { 
+            text-decoration: underline; 
+        }
+        
+        .footer-bbb { 
+            display: flex; 
+            align-items: center; 
+        }
+        
+        .copyright-row { 
+            grid-column: 1 / -1; 
+            margin-top: 20px; 
+            padding-top: 20px; 
+            border-top: 1px solid #334155; 
+            text-align: center; 
+            color: #64748b; 
+        }
+        
+        /* RESPONSIVE */
+        @media print {
+            .tier-badge, .tabs-container, .btn-secondary, .footer, .tactic-grid, .format-tabs { display: none; }
+            .header { background: white; border: none; }
+            .header h1, .tool-subtitle, .tool-description { color: #000; }
+            .tab-content { display: block !important; padding: 20px; }
+            .output-area { border: 1px solid #000; background: white; }
+            body { background: white; }
+        }
+        
+        @media (max-width: 768px) {
+            .tabs { flex-direction: column; }
+            .tab { min-width: 100%; }
+            .header-layout { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+            .logo { width: 180px; }
+            .header h1 { font-size: 1.8em; }
+            .tool-subtitle { font-size: 1em; }
+            .tool-description { font-size: 0.95em; }
+            .tier-badge { font-size: 10px; padding: 6px 12px; }
+            .tactic-grid { grid-template-columns: 1fr; }
+            .btn { width: 100%; margin-bottom: 10px; }
+            .btn-secondary { margin-right: 0; }
+            .format-tabs { flex-direction: column; }
+            .format-tab { width: 100%; text-align: center; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .footer-bbb { justify-content: center; margin-top: 20px; }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.5em; }
+            .tool-subtitle { font-size: 0.9em; }
+            .tool-description { font-size: 0.85em; }
+            .logo { width: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-container">
+            <div class="tier-badge">★ PREMIUM TIER ★</div>
+            <div class="header-layout">
+                <img src="https://myfairclaim.github.io/logo.png" alt="MyFairClaim Logo" class="logo">
+                <div class="header-text">
+                    <h1>Insurance Response Guide (IRG)</h1>
+                    <div class="tool-subtitle">Part of Your MyFairClaim Premium Package</div>
+                    <p class="tool-description">Professional response templates and phone scripts designed to help you handle insurance company tactics with confidence. Know their strategies and master your response.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 30px 20px; text-align: center; border-bottom: 1px solid #e2e8f0;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="font-size: 1.5em; font-weight: 700; color: #0f172a; margin-bottom: 12px; letter-spacing: -0.3px;">Professional Response System</h2>
+            <p style="font-size: 1.2em; color: #3b82f6; font-weight: 600; font-style: italic; margin: 0;">"They have tactics. You have truth. Respond with confidence."</p>
+        </div>
+    </div>
+    
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab active" id="tab-timeline">📅 What to Expect</button>
+            <button class="tab" id="tab-responses">📝 Response Templates</button>
+            <button class="tab" id="tab-tracker">📊 Documentation Tracker</button>
+            <button class="tab" id="tab-complete">🎊 Complete</button>
+        </div>
+    </div>
+    <div id="content-timeline" class="tab-content active">
+        <h2 class="section-header">What to Expect After Submission</h2>
+        <p class="section-subheader">Understanding the claim process and typical insurance company responses</p>
+        <div class="alert alert-info"><strong>✓ You've Submitted Your Claim.</strong> Now you'll navigate the insurance response process. This guide helps you identify their tactics and respond professionally. <em>Click any timeline section below to expand it.</em></div>
+        <div class="timeline-box collapsed" onclick="toggleTimeline(this)">
+            <div class="timeline-day">📅 Days 1-5: Initial Review</div>
+            <div class="timeline-content">
+                <p><strong>What's Happening:</strong> The insurance company receives your claim and assigns it to an adjuster. They'll review your documentation.</p>
+                <p style="margin-top: 12px;"><strong>What to Expect:</strong></p>
+                <ul>
+                    <li>You may receive an acknowledgment email or letter</li>
+                    <li>They might request additional documentation (delay tactic)</li>
+                    <li>An adjuster may call to "discuss" the claim</li>
+                </ul>
+                <p style="margin-top: 12px;"><strong>Your Action:</strong> Wait patiently. Do NOT provide recorded statements without reviewing the Phone Scripts tab first.</p>
+            </div>
+        </div>
+        <div class="timeline-box collapsed" onclick="toggleTimeline(this)">
+            <div class="timeline-day">📅 Days 6-15: Assessment Period</div>
+            <div class="timeline-content">
+                <p><strong>What's Happening:</strong> The adjuster is evaluating your claim and determining their strategy.</p>
+                <p style="margin-top: 12px;"><strong>What to Expect:</strong></p>
+                <ul>
+                    <li>You might receive a lowball settlement offer</li>
+                    <li>They may claim they need "more time to investigate"</li>
+                    <li>You could get a request for a recorded statement</li>
+                    <li>They might dispute your valuation methodology</li>
+                </ul>
+                <p style="margin-top: 12px;"><strong>Your Action:</strong> Use the Response Templates tab to determine what strategy they're using and select the appropriate response.</p>
+            </div>
+        </div>
+        <div class="timeline-box collapsed" onclick="toggleTimeline(this)">
+            <div class="timeline-day">📅 Days 16-30: Decision Window</div>
+            <div class="timeline-content">
+                <p><strong>What's Happening:</strong> Most states require insurers to accept or deny claims within 30 days.</p>
+                <p style="margin-top: 12px;"><strong>What to Expect:</strong></p>
+                <ul>
+                    <li>You'll receive either: (1) Acceptance & payment, (2) Denial letter, or (3) Continued delay tactics</li>
+                    <li>If denied, they'll provide a reason (often disputing valuation or claiming policy exclusions)</li>
+                    <li>If delayed, they're hoping you'll give up</li>
+                </ul>
+                <p style="margin-top: 12px;"><strong>Your Action:</strong> If denied or delayed past 30 days, escalate using the Response Templates or proceed to the Dispute Resolution Guide.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="btn btn-primary" onclick="showTab('responses')" style="font-size: 1.1em; padding: 18px 36px;">
+                🚀 Next Step: Generate Your Professional Response
+            </button>
+        </div>
+    </div>
+    <div id="content-responses" class="tab-content">
+        <h2 class="section-header">Identify Their Tactic & Respond</h2>
+        <p class="section-subheader">Click the tactic you're experiencing to access professional response templates</p>
+        <div class="tactic-grid">
+            <div class="tactic-card" onclick="selectTactic(1)">
+                <div class="tactic-number">1</div>
+                <div class="tactic-title">Initial Lowball Offer</div>
+                <div class="tactic-description">They offer an amount significantly lower than your documented diminished value, hoping you'll accept less.</div>
+            </div>
+            <div class="tactic-card" onclick="selectTactic(2)">
+                <div class="tactic-number">2</div>
+                <div class="tactic-title">Recorded Statement Request</div>
+                <div class="tactic-description">They ask for a recorded statement, hoping to get you to say something that undermines your claim.</div>
+            </div>
+            <div class="tactic-card" onclick="selectTactic(3)">
+                <div class="tactic-number">3</div>
+                <div class="tactic-title">Delay Tactics</div>
+                <div class="tactic-description">Repeated requests for "additional documentation" or claims of "ongoing investigation" to stall the process.</div>
+            </div>
+            <div class="tactic-card" onclick="selectTactic(4)">
+                <div class="tactic-number">4</div>
+                <div class="tactic-title">Comparative Negligence</div>
+                <div class="tactic-description">They claim you were partially at fault for the accident to reduce or deny your diminished value claim.</div>
+            </div>
+            <div class="tactic-card" onclick="selectTactic(5)">
+                <div class="tactic-number">5</div>
+                <div class="tactic-title">"Market Value" Disputes</div>
+                <div class="tactic-description">They challenge your professional valuation with their own "internal assessment" showing lower diminished value.</div>
+            </div>
+            <div class="tactic-card" onclick="selectTactic(6)">
+                <div class="tactic-number">6</div>
+                <div class="tactic-title">Excessive Documentation</div>
+                <div class="tactic-description">They request unnecessary documentation hoping you'll give up or make an error in providing information.</div>
+            </div>
+        </div>
+        <div id="responseSection" class="response-section">
+            <h3 id="responseTitle" style="color: #1e40af; margin-bottom: 24px; font-size: 1.8em;">Select Your Response Format:</h3>
+            <div class="format-tabs">
+                <button class="format-tab active" onclick="selectFormat('letter')">📄 Professional Letter</button>
+                <button class="format-tab" onclick="selectFormat('email')">✉️ Email Response</button>
+                <button class="format-tab" onclick="selectFormat('script')">📞 Phone Script</button>
+            </div>
+            <div id="letterContent" class="response-content active">
+                <div class="output-area" id="letterText"></div>
+                <button class="btn btn-primary" onclick="copyResponse('letterText')">📋 Copy Letter</button>
+                <button class="btn btn-secondary" onclick="downloadResponse('letterText', 'Response_Letter.txt')">💾 Download</button>
+            </div>
+            <div id="emailContent" class="response-content">
+                <div class="output-area" id="emailText"></div>
+                <button class="btn btn-primary" onclick="copyResponse('emailText')">📋 Copy Email</button>
+                <button class="btn btn-secondary" onclick="downloadResponse('emailText', 'Response_Email.txt')">💾 Download</button>
+            </div>
+            <div id="scriptContent" class="response-content">
+                <div class="output-area" id="scriptText"></div>
+                <button class="btn btn-primary" onclick="copyResponse('scriptText')">📋 Copy Script</button>
+                <button class="btn btn-secondary" onclick="downloadResponse('scriptText', 'Phone_Script.txt')">💾 Download</button>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
+            <button class="btn btn-primary" onclick="showTab('tracker')" style="font-size: 1.1em; padding: 18px 36px;">
+                📊 Next Step: Document Your Interactions
+            </button>
+        </div>
+    </div>
+    <div id="content-tracker" class="tab-content">
+        <h2 class="section-header">Documentation Tracker</h2>
+        <p class="section-subheader">Track all communications, deadlines, and evidence for your claim</p>
+        
+        <div class="alert alert-info"><strong>📋 Why Track Everything:</strong> Detailed documentation is your strongest weapon if you need to escalate. Insurance companies count on you NOT having records. Prove them wrong.</div>
+        
+        <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 2px solid #3b82f6; border-radius: 8px; padding: 30px; margin-bottom: 30px;">
+            <h3 style="font-size: 1.5em; color: #1e40af; margin-bottom: 20px;">📖 How to Use the Communication Log</h3>
+            
+            <div style="background: white; border-radius: 8px; padding: 20px;">
+                <h4 style="color: #3b82f6; margin-bottom: 12px;">📞 Communication Log (Interactive Tool)</h4>
+                <p style="color: #475569; line-height: 1.8; margin-bottom: 12px;">
+                    <strong>Purpose:</strong> Build a detailed record of every interaction with the insurance company. This creates a timeline that proves delays, inconsistencies, or bad faith.
+                </p>
+                <p style="color: #475569; line-height: 1.8; margin-bottom: 12px;">
+                    <strong>How to Use:</strong>
+                </p>
+                <ol style="color: #475569; line-height: 1.8; margin-left: 20px;">
+                    <li><strong>After each call, email, or letter:</strong> Immediately fill out the form with the date, time, type, and direction of communication</li>
+                    <li><strong>Document who you spoke with:</strong> Get the adjuster's full name, direct phone number, and email</li>
+                    <li><strong>Summarize the conversation:</strong> What was discussed, what they said, what you said, and what was promised</li>
+                    <li><strong>Note action items:</strong> Record what they committed to do and any deadlines they mentioned</li>
+                    <li><strong>Flag red flags:</strong> Document any inconsistencies, pressure tactics, unreasonable delays, or misrepresentations</li>
+                    <li><strong>Click "Add Entry to Log":</strong> Your entry will appear below in chronological order</li>
+                    <li><strong>Download periodically:</strong> Click "Download Complete Log" to save a backup to your computer</li>
+                </ol>
+                <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; margin-top: 12px; border-radius: 4px;">
+                    <p style="color: #92400e; margin: 0;"><strong>⚠️ Pro Tip:</strong> Log entries immediately after each interaction while details are fresh. Include exact quotes when possible, especially promises or suspicious statements.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 30px; margin-bottom: 30px;">
+            <h3 style="font-size: 1.5em; color: #0f172a; margin-bottom: 20px;">📞 Communication Log</h3>
+            <p style="color: #64748b; margin-bottom: 20px;">Track every interaction with the insurance company. Your documented evidence.</p>
+            
+            <div style="background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 8px; padding: 24px; margin-bottom: 20px;">
+                <h4 style="color: #3b82f6; margin-bottom: 16px;">Add New Communication Entry</h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Date</label>
+                        <input type="date" id="logDate" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;" />
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Time</label>
+                        <input type="time" id="logTime" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;" />
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Type</label>
+                        <select id="logType" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;">
+                            <option>Phone Call</option>
+                            <option>Email</option>
+                            <option>Letter</option>
+                            <option>In-Person</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Direction</label>
+                        <select id="logDirection" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;">
+                            <option>Incoming</option>
+                            <option>Outgoing</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Insurance Company</label>
+                        <input type="text" id="logCompany" placeholder="e.g., State Farm" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;" />
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Adjuster Name</label>
+                        <input type="text" id="logAdjuster" placeholder="Adjuster's full name" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;" />
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Summary of Communication</label>
+                    <textarea id="logSummary" rows="3" placeholder="What was discussed, what they said, what you said..." style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif; resize: vertical;"></textarea>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Action Items / Next Steps</label>
+                    <textarea id="logActions" rows="2" placeholder="What they promised, what you need to follow up on, deadlines mentioned..." style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif; resize: vertical;"></textarea>
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 5px;">Red Flags (if any)</label>
+                    <textarea id="logRedFlags" rows="2" placeholder="Inconsistencies, unreasonable delays, pressure tactics, misrepresentation..." style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif; resize: vertical;"></textarea>
+                </div>
+                
+                <button class="btn btn-primary" onclick="addCommLog()" style="width: 100%;">
+                    ➕ Add Entry to Log
+                </button>
+            </div>
+            
+            <div id="commLogEntries"></div>
+            
+            <div id="commLogActions" style="display: none; text-align: center; margin-top: 20px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
+                <button class="btn btn-primary" onclick="downloadAllLogs()">📥 Download Complete Log</button>
+                <button class="btn btn-secondary" onclick="clearAllLogs()">🗑️ Clear All Entries</button>
+            </div>
+        </div>
+        
+        <div class="tracker-box collapsed" onclick="toggleTracker(this)">
+            <div class="tracker-header">⏰ Deadline Calculator</div>
+            <div class="tracker-content">
+                <p style="color: #64748b; margin-bottom: 20px;">Track important dates and deadlines:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div style="background: #eff6ff; padding: 20px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <strong style="color: #1e40af;">Claim Submitted:</strong>
+                    <p style="color: #475569; margin-top: 8px;">Date you sent your demand letter via certified mail</p>
+                </div>
+                <div style="background: #eff6ff; padding: 20px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <strong style="color: #1e40af;">Certified Mail Delivered:</strong>
+                    <p style="color: #475569; margin-top: 8px;">Date insurance company signed for your letter</p>
+                </div>
+                <div style="background: #fef3c7; padding: 20px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <strong style="color: #92400e;">State Response Deadline:</strong>
+                    <p style="color: #475569; margin-top: 8px;">15-60 days from delivery (check your state)</p>
+                </div>
+                <div style="background: #fef3c7; padding: 20px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <strong style="color: #92400e;">Follow-Up Date:</strong>
+                    <p style="color: #475569; margin-top: 8px;">7-10 days after delivery if no response</p>
+                </div>
+                <div style="background: #fee2e2; padding: 20px; border-radius: 8px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">Escalation Date:</strong>
+                    <p style="color: #475569; margin-top: 8px;">If no resolution by state deadline</p>
+                </div>
+                <div style="background: #ecfdf5; padding: 20px; border-radius: 8px; border-left: 4px solid #10b981;">
+                    <strong style="color: #065f46;">Settlement Deadline:</strong>
+                    <p style="color: #475569; margin-top: 8px;">Any expiration dates on offers</p>
+                </div>
+            </div>
+            
+                <div class="alert alert-warning">
+                    <strong>⚠️ Pro Tip:</strong> Set calendar reminders for each deadline. Add 3-day buffer before official deadlines to ensure you never miss one.
+                </div>
+            </div>
+        </div>
+        
+        <div class="tracker-box collapsed" onclick="toggleTracker(this)">
+            <div class="tracker-header">📁 Evidence Checklist</div>
+            <div class="tracker-content">
+                <p style="color: #64748b; margin-bottom: 20px;">Make sure you have organized copies of everything:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <h4 style="color: #3b82f6; margin-bottom: 10px;">📄 Core Documents:</h4>
+                    <div style="color: #475569; line-height: 2;">
+                        □ Demand letter (signed copy)<br>
+                        □ Certified mail receipt<br>
+                        □ Signed delivery confirmation<br>
+                        □ Fair Market Impact Report<br>
+                        □ Fair Market Value Report<br>
+                        □ All repair estimates/invoices<br>
+                        □ Vehicle photos (pre-accident)<br>
+                        □ Damage photos<br>
+                        □ Insurance policy (full copy)
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #3b82f6; margin-bottom: 10px;">💬 Communications:</h4>
+                    <div style="color: #475569; line-height: 2;">
+                        □ All emails (print/save PDFs)<br>
+                        □ All letters (copies)<br>
+                        □ Phone call logs (dates/times)<br>
+                        □ Adjuster business cards<br>
+                        □ Recorded calls (if legal in your state)<br>
+                        □ Text messages (screenshots)<br>
+                        □ Voicemails (recordings/transcripts)
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #3b82f6; margin-bottom: 10px;">📊 Claim Responses:</h4>
+                    <div style="color: #475569; line-height: 2;">
+                        □ Settlement offers (all versions)<br>
+                        □ Denial letters<br>
+                        □ Delay justifications<br>
+                        □ Requests for more documentation<br>
+                        □ Their valuation reports<br>
+                        □ Any policy language cited
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #3b82f6; margin-bottom: 10px;">⚖️ Legal/Escalation:</h4>
+                    <div style="color: #475569; line-height: 2;">
+                        □ State insurance regulations<br>
+                        □ Response deadline requirements<br>
+                        □ Bad faith documentation<br>
+                        □ DOI complaint (if filed)<br>
+                        □ Attorney correspondence<br>
+                        □ Court filings (if applicable)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-success" style="margin-top: 20px;">
+                <strong>✓ Organization Tip:</strong> Create a folder (digital or physical) for each category. Number documents chronologically. When you need to escalate, everything is ready to go.
+            </div>
+            </div>
+        </div>
+        
+        <div class="tracker-box collapsed" onclick="toggleTracker(this)">
+            <div class="tracker-header">🚩 Red Flag Indicators</div>
+            <div class="tracker-content">
+                <p style="color: #64748b; margin-bottom: 20px;">Document these bad faith tactics if they occur:</p>
+            
+            <div style="background: #fef3c7; padding: 20px; border-radius: 8px; border-left: 4px solid #f59e0b; margin-bottom: 15px;">
+                <strong style="color: #92400e;">Unreasonable Delays:</strong>
+                <div style="color: #475569; margin-top: 8px; line-height: 1.8;">
+                    □ No response after state deadline<br>
+                    □ Multiple requests for already-provided documents<br>
+                    □ "Still investigating" with no updates for 30+ days<br>
+                    □ Adjuster unavailable for weeks
+                </div>
+            </div>
+            
+            <div style="background: #fef3c7; padding: 20px; border-radius: 8px; border-left: 4px solid #f59e0b; margin-bottom: 15px;">
+                <strong style="color: #92400e;">Misrepresentation:</strong>
+                <div style="color: #475569; margin-top: 8px; line-height: 1.8;">
+                    □ Claiming DV not covered (when it is)<br>
+                    □ Misquoting policy language<br>
+                    □ False claims about state law<br>
+                    □ Incorrect deadline information
+                </div>
+            </div>
+            
+            <div style="background: #fef3c7; padding: 20px; border-radius: 8px; border-left: 4px solid #f59e0b; margin-bottom: 15px;">
+                <strong style="color: #92400e;">Lowball Tactics:</strong>
+                <div style="color: #475569; margin-top: 8px; line-height: 1.8;">
+                    □ Offer below 50% of documented value<br>
+                    □ No methodology provided for their valuation<br>
+                    □ Refusing to provide counter-appraisal<br>
+                    □ "Take it or leave it" ultimatums
+                </div>
+            </div>
+            
+            <div style="background: #fef3c7; padding: 20px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                <strong style="color: #92400e;">Pressure & Intimidation:</strong>
+                <div style="color: #475569; margin-top: 8px; line-height: 1.8;">
+                    □ Threatening to deny if you don't accept quickly<br>
+                    □ Requiring recorded statements (not needed for 1st party)<br>
+                    □ Implying you need a lawyer to proceed<br>
+                    □ Making you feel your claim isn't legitimate
+                </div>
+            </div>
+            
+            <div class="alert alert-warning" style="margin-top: 20px;">
+                <strong>⚠️ Document Everything:</strong> Each red flag strengthens a potential bad faith complaint or lawsuit. Note the date, who said/did it, and exactly what happened.
+            </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
+            <button class="btn btn-primary" onclick="showTab('complete')" style="font-size: 1.1em; padding: 18px 36px;">
+                🎊 Complete: View Your Achievement
+            </button>
+        </div>
+    </div>
+    
+    <div id="content-complete" class="tab-content">
+        <h2 class="section-header">🎊 You're Equipped to Respond</h2>
+        <p class="section-subheader">Professional tools to handle any insurance company tactic</p>
+        
+        <!-- CELEBRATION MESSAGE -->
+        <div class="celebration show" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 3px solid #10b981; border-radius: 16px; padding: 40px; margin: 30px 0; text-align: center; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);">
+            <div style="font-size: 64px; margin-bottom: 16px;">🎊</div>
+            <div style="font-size: 28px; font-weight: 800; color: #065f46; margin-bottom: 12px;">You're Fully Prepared!</div>
+            <div style="font-size: 16px; color: #475569; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                Outstanding work! You now have professional response templates for all 6 insurance company tactics, comprehensive phone scripts, and a documentation system to track everything. You're equipped to handle whatever they throw at you with confidence and professionalism.
+            </div>
+        </div>
+        
+        <!-- YOUR TOOLS SECTION -->
+        <div style="background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%); border: 3px solid #3b82f6; border-radius: 16px; padding: 32px; margin: 30px 0;">
+            <div style="text-align: center; margin-bottom: 24px;">
+                <div style="font-size: 28px; font-weight: 800; color: #1e40af; margin-bottom: 8px;">📦 Your Complete Response System</div>
+                <div style="font-size: 16px; color: #64748b; font-weight: 500;">Everything you need to respond professionally</div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+                <!-- Response Templates Card -->
+                <div style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <div style="font-size: 20px; font-weight: 700; color: #1e40af; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 32px;">📝</span>
+                        <span>Response Templates</span>
+                    </div>
+                    <div style="font-size: 14px; color: #64748b; margin-bottom: 16px; line-height: 1.6;">
+                        6 professional letter, email & phone script templates for every tactic
+                    </div>
+                    <button onclick="showTab('responses')" style="width: 100%; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 12px 20px; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3); transition: all 0.3s; font-family: 'Outfit', sans-serif;">
+                        📝 View Templates
+                    </button>
+                </div>
+                
+                <!-- Documentation Tracker Card -->
+                <div style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <div style="font-size: 20px; font-weight: 700; color: #1e40af; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 32px;">📊</span>
+                        <span>Documentation System</span>
+                    </div>
+                    <div style="font-size: 14px; color: #64748b; margin-bottom: 16px; line-height: 1.6;">
+                        Interactive log + deadline tracking + evidence checklist
+                    </div>
+                    <button onclick="showTab('tracker')" style="width: 100%; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 12px 20px; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3); transition: all 0.3s; font-family: 'Outfit', sans-serif;">
+                        📊 View Tracker
+                    </button>
+                </div>
+            </div>
+            
+            <style>
+                @media (max-width: 768px) {
+                    [style*="grid-template-columns: 1fr 1fr"] {
+                        grid-template-columns: 1fr !important;
+                    }
+                }
+            
+        /* PREMIUM TIER BADGE */
+        .tier-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #78350f;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+            border: 2px solid #d97706;
+            z-index: 9999;
+        }
+        
+        @media (max-width: 768px) {
+            .tier-badge {
+                font-size: 10px;
+                padding: 6px 12px;
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+    </style>
+            
+            <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 16px; border-radius: 8px;">
+                <div style="font-size: 14px; color: #1e40af; font-weight: 600; margin-bottom: 6px;">💡 Quick Tip</div>
+                <div style="font-size: 13px; color: #1e3a8a; line-height: 1.6;">
+                    Click the buttons above to access your tools anytime. All templates and trackers are ready to use immediately. Stay confident - you're prepared for every scenario.
+                </div>
+            </div>
+        </div>
+        
+        <!-- WHAT'S NEXT SECTION -->
+        <div style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 32px; margin: 30px 0;">
+            <h3 style="font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 20px;">🎯 What Happens Next</h3>
+            <div style="color: #475569; line-height: 1.8;">
+                <p style="margin-bottom: 16px;"><strong>1. Wait for Their Response:</strong> Insurance companies typically respond within 15-60 days (depending on your state). Use the Documentation Tracker to monitor deadlines.</p>
+                <p style="margin-bottom: 16px;"><strong>2. Document Every Interaction:</strong> Log all calls, emails, and letters in your Communication Log. This creates a paper trail if you need to escalate.</p>
+                <p style="margin-bottom: 16px;"><strong>3. Respond Professionally:</strong> When they use delay tactics, lowball offers, or other strategies, use the appropriate template from the Response Templates section.</p>
+                <p style="margin-bottom: 16px;"><strong>4. Stay Confident:</strong> You have professional tools and know their playbook. They can't intimidate someone who's prepared.</p>
+                <p style="margin-bottom: 0;"><strong>5. Escalate if Necessary:</strong> If they deny or delay improperly, you have documented evidence and professional responses ready for Department of Insurance complaints or legal action.</p>
+            </div>
+        </div>
+        
+        <!-- BOOKING SECTION -->
+        <div style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 32px; margin: 30px 0;">
+            <h3 style="font-size: 22px; font-weight: 700; color: #0f172a; margin-bottom: 12px;">⭐ Purchase Custom Support</h3>
+            <p style="color: #64748b; margin-bottom: 24px;">Schedule a consultation with our claims specialists to get personalized assistance with your claim.</p>
+            
+            <div id="bookingForm" style="background: #f8fafc; border-radius: 8px; padding: 24px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px;">Your Name *</label>
+                        <input type="text" id="bookingName" placeholder="John Smith" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;" />
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px;">Email *</label>
+                        <input type="email" id="bookingEmail" placeholder="john@example.com" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;" />
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px;">Phone *</label>
+                        <input type="tel" id="bookingPhone" oninput="formatPhone(this)" placeholder="(555) 123-4567" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;" />
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px;">Preferred Date *</label>
+                        <select id="bookingDate" onchange="loadTimeSlots()" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;">
+                            <option value="">Select a date...</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px;">Preferred Time *</label>
+                    <div id="timeSlots" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                        <div style="color: #94a3b8; text-align: center; padding: 20px; grid-column: 1 / -1;">
+                            Please select a date first
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px;">What would you like to discuss? *</label>
+                    <select id="bookingTopic" style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif;">
+                        <option value="">Select a topic...</option>
+                        <option>Response Strategy - They denied/delayed my claim</option>
+                        <option>Negotiation Help - How to counter their lowball offer</option>
+                        <option>Documentation Review - Am I missing anything?</option>
+                        <option>Escalation Options - DOI complaint or legal action</option>
+                        <option>General Questions - I need guidance</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; color: #475569; margin-bottom: 8px;">Additional Notes (Optional)</label>
+                    <textarea id="bookingNotes" rows="3" placeholder="Brief description of your situation..." style="width: 100%; padding: 10px; border: 2px solid #cbd5e1; border-radius: 6px; font-family: 'Outfit', sans-serif; resize: vertical;"></textarea>
+                </div>
+                
+                <button onclick="submitBooking()" style="width: 100%; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 14px 24px; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3); transition: all 0.3s; font-family: 'Outfit', sans-serif;">
+                    📅 Schedule Free Consultation
+                </button>
+                
+                <div id="bookingConfirmation" style="display: none; background: #ecfdf5; border: 2px solid #10b981; border-radius: 8px; padding: 20px; margin-top: 20px; text-align: center;">
+                    <div style="font-size: 18px; font-weight: 700; color: #065f46; margin-bottom: 8px;">✅ Consultation Scheduled!</div>
+                    <div id="confirmationDetails" style="color: #047857; line-height: 1.6;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SUCCESS REMINDER -->
+        <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 2px solid #10b981; border-radius: 12px; padding: 24px; text-align: center;">
+            <div style="font-size: 18px; font-weight: 700; color: #065f46; margin-bottom: 8px;">Remember: They Have Tactics. You Have Truth.</div>
+            <div style="font-size: 14px; color: #047857; line-height: 1.6;">
+                Insurance companies are experts at reducing claims. But you're equipped with professional responses, documentation systems, and the knowledge to counter every tactic. Respond with confidence. You've got this.
+            </div>
+        </div>
+    </div>
+    
+    <canvas id="confettiCanvas"></canvas>
+    
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>Need Additional Support?</h3>
+                <p style="margin-bottom: 20px;">If you have questions or need help with your specific situation, our support team is here to assist you.</p>
+                <p><strong>Address:</strong> PO Box 125, Scottsdale, AZ 85257</p>
+                <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#2e5d5b5e5e415c5a6e4357484f475c4d424f4743004d4143"><span class="__cf_email__" data-cfemail="f3808683839c8187b39e8a95929a81909f929a9edd909c9e">[email&#160;protected]</span></a></p>
+                <p><strong>Phone:</strong> <a href="tel:8775033247">877-503-3247</a></p>
+            </div>
+            
+            <div class="footer-bbb">
+                <a href="https://www.bbb.org/us/az/scottsdale/profile/insurance-claims-processing/myfairclaim-llc-1126-1000150972/#sealclick" target="_blank" rel="nofollow">
+                    <img src="https://seal-central-northern-western-arizona.bbb.org/seals/blue-seal-200-65-bbb-1000150972.png" style="border: 0;" alt="MyFairClaim LLC BBB Business Review" />
+                </a>
+            </div>
+            
+            <div class="copyright-row">
+                <p>© 2026 MyFairClaim LLC. All rights reserved.</p>
+                <p style="margin-top: 8px;">Professional Diminished Value Claims Service | Scottsdale, Arizona</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const RESPONSES={1:{title:"Responding to Lowball Offer",letter:"[DATE]\n\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR EMAIL]\n[YOUR PHONE]\n\n[INSURANCE COMPANY]\nClaims Department\nAttn: [ADJUSTER NAME]\nRe: Claim Number [CLAIM NUMBER]\n\nDear [ADJUSTER NAME]:\n\nI am writing in response to your settlement offer of [THEIR OFFER AMOUNT] for my diminished value claim.\n\nREJECTION OF INADEQUATE OFFER\n\nI must respectfully reject this offer as it fails to adequately compensate me for the documented diminished value of my vehicle. The offer represents only [CALCULATE PERCENTAGE]% of the professionally documented diminished value of [YOUR AMOUNT].\n\nMy claim is supported by comprehensive professional analysis from MyFairClaim using industry-standard methodologies, extensive market data, and real-time comparable vehicle analysis.\n\nYour offer appears to be based on an arbitrary reduction rather than professional market analysis. If you believe your offer is justified, please provide:\n1. Detailed methodology used to calculate your offer\n2. Market data supporting your valuation\n3. Professional appraisal contradicting my documentation\n4. Specific reasoning for the substantial reduction\n\nI am demanding the full documented diminished value amount of [YOUR AMOUNT]. Per [STATE] insurance regulations, I request your response within [STATE TIMEFRAME].\n\nIf we cannot reach a fair settlement, I will pursue all available remedies including filing a complaint with the [STATE] Department of Insurance and pursuing legal action.\n\nSincerely,\n[YOUR NAME]",email:"Subject: Rejection of Inadequate Settlement Offer - Claim #[CLAIM NUMBER]\nTo: [ADJUSTER EMAIL]\n\nDear [ADJUSTER NAME],\n\nI am responding to your settlement offer of [THEIR OFFER] for my diminished value claim.\n\nREJECTION OF OFFER\n\nI must reject this offer as it represents only [PERCENTAGE]% of the professionally documented diminished value of [YOUR AMOUNT].\n\nMy claim is supported by:\n• Enhanced Diminished Value Report (professional analysis)\n• Vehicle Valuation Report (extensive market comparisons)\n• Real-time market data from [NUMBER] comparable vehicles\n\nYour offer appears arbitrary and does not reflect the professional market analysis provided.\n\nIf your offer is justified, please provide:\n1. Detailed calculation methodology\n2. Supporting market data\n3. Professional appraisal contradicting my documentation\n\nI am demanding the full documented amount of [YOUR AMOUNT].\n\nPlease respond within [STATE TIMEFRAME] with either acceptance of the full amount or detailed professional justification for your reduced offer.\n\nIf we cannot reach fair resolution, I will file a Department of Insurance complaint and pursue legal remedies.\n\nBest regards,\n[YOUR NAME]\n[YOUR CONTACT INFO]"},2:{title:"Responding to Recorded Statement Request",letter:"[DATE]\n\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR EMAIL]\n[YOUR PHONE]\n\n[INSURANCE COMPANY]\nClaims Department\nAttn: [ADJUSTER NAME]\nRe: Claim Number [CLAIM NUMBER]\n\nDear [ADJUSTER NAME]:\n\nI am writing in response to your request for a recorded statement regarding my diminished value claim.\n\nRECORDED STATEMENT NOT REQUIRED\n\nAfter careful consideration, I respectfully decline to provide a recorded statement at this time. All relevant information regarding my diminished value claim has been thoroughly documented in my written submission.\n\nThese comprehensive professional documents contain all information necessary to evaluate and settle my claim. A recorded statement would merely reiterate information already provided in writing.\n\nIf you have specific questions not addressed in my written documentation, please submit them in writing and I will respond promptly and thoroughly in writing.\n\nIf you believe a recorded statement is legally required, please cite the specific statute or policy provision requiring it.\n\nI request that you proceed with evaluating my claim based on the comprehensive professional documentation provided. Please respond with your claim decision within [STATE TIMEFRAME] as required by [STATE] law.\n\nSincerely,\n[YOUR NAME]",email:"Subject: Response to Recorded Statement Request - Claim #[CLAIM NUMBER]\nTo: [ADJUSTER EMAIL]\n\nDear [ADJUSTER NAME],\n\nI am responding to your request for a recorded statement regarding my diminished value claim.\n\nDECLINING RECORDED STATEMENT\n\nI respectfully decline to provide a recorded statement. All relevant information has been thoroughly documented in my written submission.\n\nIf you have specific questions not addressed in the documentation, please submit them in writing. I will respond promptly and thoroughly.\n\nIf you believe a recorded statement is legally required, please cite the specific statute or policy provision requiring it.\n\nPlease proceed with evaluating my claim based on the professional documentation provided. I request your decision within [STATE TIMEFRAME] as required by [STATE] law.\n\nBest regards,\n[YOUR NAME]\n[CONTACT INFO]"},3:{title:"Responding to Delay Tactics",letter:"[DATE]\n\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR EMAIL]\n[YOUR PHONE]\n\n[INSURANCE COMPANY]\nClaims Department\nAttn: [ADJUSTER NAME]\nRe: Claim Number [CLAIM NUMBER]\n\nDear [ADJUSTER NAME]:\n\nI am writing to address the ongoing delay in resolving my diminished value claim, which was submitted on [SUBMISSION DATE] - now [NUMBER] days ago.\n\nDOCUMENTATION OF DELAYS\n\nSince submitting my comprehensive claim, I have experienced repeated delays through multiple requests for additional information, despite providing complete professional documentation.\n\nPer [STATE] insurance regulations, claims must be resolved within [STATE REQUIREMENT] days. My claim is now [NUMBER] days old, exceeding the statutory timeframe.\n\nDEMAND FOR IMMEDIATE RESOLUTION\n\nI am demanding immediate resolution. You have three options:\n1. ACCEPT the claim and issue payment of [YOUR AMOUNT] within 5 business days\n2. DENY the claim in writing with specific reasoning\n3. PROVIDE detailed written explanation of what prevents resolution\n\nI am providing 7 days for resolution. Continued delay will result in immediate DOI complaint and pursuit of legal remedies.\n\nSincerely,\n[YOUR NAME]\n\nCC: [STATE] Department of Insurance",email:"Subject: URGENT - Improper Delay of Claim #[CLAIM NUMBER] - [NUMBER] Days\nTo: [ADJUSTER EMAIL]\n\nDear [ADJUSTER NAME],\n\nI am writing regarding the unreasonable delay in resolving my diminished value claim submitted [NUMBER] days ago.\n\nVIOLATION OF STATE LAW\n\nPer [STATE] law, claims must be resolved within [TIMEFRAME]. My claim is [NUMBER] days old - EXCEEDING statutory requirements.\n\nIMMEDIATE RESOLUTION DEMANDED\n\nWithin 7 days, either:\n1. ACCEPT and pay ([YOUR AMOUNT]), OR\n2. DENY with specific written reasoning, OR\n3. PROVIDE detailed explanation\n\nContinued delay will result in immediate DOI complaint and legal action.\n\nRegards,\n[YOUR NAME]\n[CONTACT INFO]"},4:{title:"Responding to Comparative Negligence Claims",letter:"[DATE]\n\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR EMAIL]\n[YOUR PHONE]\n\n[INSURANCE COMPANY]\nClaims Department\nAttn: [ADJUSTER NAME]\nRe: Claim Number [CLAIM NUMBER]\n\nDear [ADJUSTER NAME]:\n\nI am writing in response to your assertion that comparative negligence applies to my diminished value claim.\n\nREJECTION OF COMPARATIVE NEGLIGENCE APPLICATION\n\nI categorically reject your claim that I bear any fault for the accident. Your company already accepted 100% liability by paying for my repairs in full.\n\nYou cannot accept 100% liability for repairs while claiming comparative negligence for diminished value. This is inconsistent.\n\nDiminished value is a direct consequence of compensable property damage. Once you accepted liability for the damage, all consequential damages flow from that liability.\n\nIf you wish to assert comparative negligence, provide:\n1. Detailed factual basis\n2. Specific traffic violations alleged\n3. Evidence supporting allegations\n4. Legal authority for applying to consequential property damage\n\nOtherwise, withdraw and pay the full [YOUR AMOUNT].\n\nSincerely,\n[YOUR NAME]",email:"Subject: Rejection of Improper Comparative Negligence Claim - Claim #[CLAIM NUMBER]\nTo: [ADJUSTER EMAIL]\n\nDear [ADJUSTER NAME],\n\nI am responding to your assertion of comparative negligence.\n\nREJECTION\n\nI categorically reject this claim. Your company accepted 100% liability by paying for repairs.\n\nYou cannot accept 100% liability for repairs while claiming comparative negligence for diminished value.\n\nIf you wish to assert comparative negligence, provide:\n1. Detailed factual basis\n2. Specific violations alleged\n3. Evidence\n4. Legal authority\n\nOtherwise, withdraw and pay [YOUR AMOUNT].\n\nRegards,\n[YOUR NAME]"},5:{title:"Responding to Market Value Disputes",letter:"[DATE]\n\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR EMAIL]\n[YOUR PHONE]\n\n[INSURANCE COMPANY]\nClaims Department\nAttn: [ADJUSTER NAME]\nRe: Claim Number [CLAIM NUMBER]\n\nDear [ADJUSTER NAME]:\n\nI am writing in response to your 'internal assessment' disputing the professionally documented diminished value.\n\nREJECTION OF UNSUPPORTED ASSESSMENT\n\nI reject your assessment as it contradicts comprehensive professional market analysis.\n\nYour assessment is deficient:\n1. NO METHODOLOGY DISCLOSED\n2. NO MARKET DATA PROVIDED\n3. NO PROFESSIONAL ANALYSIS\n4. UNEXPLAINED REDUCTION\n\nIf you dispute my valuation, provide:\n1. DETAILED METHODOLOGY\n2. COMPARABLE SALES DATA\n3. PROFESSIONAL APPRAISAL\n4. WRITTEN ANALYSIS\n\nI have provided professional documentation. You must provide equivalent support.\n\nRespond within [TIMEFRAME] with either acceptance of [YOUR AMOUNT] or professional appraisal report.\n\nSincerely,\n[YOUR NAME]",email:"Subject: Rejection of Unsupported Valuation Dispute - Claim #[CLAIM NUMBER]\nTo: [ADJUSTER EMAIL]\n\nDear [ADJUSTER NAME],\n\nI am responding to your 'internal assessment' disputing my professionally documented diminished value.\n\nREJECTION\n\nYour assessment lacks:\n✗ Methodology\n✗ Market data\n✗ Professional analysis\n✗ Justification\n\nTo dispute, provide:\n1. Detailed methodology\n2. Comparable sales data\n3. Independent professional appraisal\n4. Written analysis\n\nWithin [TIMEFRAME], provide either full payment of [YOUR AMOUNT] or professional appraisal report.\n\nRegards,\n[YOUR NAME]"},6:{title:"Responding to Excessive Documentation Requests",letter:"[DATE]\n\n[YOUR NAME]\n[YOUR ADDRESS]\n[YOUR EMAIL]\n[YOUR PHONE]\n\n[INSURANCE COMPANY]\nClaims Department\nAttn: [ADJUSTER NAME]\nRe: Claim Number [CLAIM NUMBER]\n\nDear [ADJUSTER NAME]:\n\nI am writing regarding your [NUMBER] request for additional documentation since [SUBMISSION DATE].\n\nPATTERN OF EXCESSIVE REQUESTS\n\nThis pattern suggests delay tactics rather than legitimate information gathering.\n\nMy initial submission included all necessary information. Your current request is improper.\n\nDEMAND FOR RESOLUTION\n\nI demand you either:\n1. ACCEPT and pay [YOUR AMOUNT]\n2. DENY with specific reasons\n3. EXPLAIN what specific deficiency prevents evaluation\n\nProviding 10 days for resolution. Continued delay will result in DOI complaint.\n\nSincerely,\n[YOUR NAME]\n\nCC: [STATE] Department of Insurance",email:"Subject: Response to Excessive Documentation Request - Claim #[CLAIM NUMBER]\nTo: [ADJUSTER EMAIL]\n\nDear [ADJUSTER NAME],\n\nI am responding to your [NUMBER]th request for additional documentation.\n\nPATTERN OF EXCESSIVE REQUESTS\n\nThis suggests delay tactics.\n\nI provided comprehensive professional documentation initially.\n\nDEMAND FOR RESOLUTION\n\nWithin 10 days, either:\n• Accept and pay [YOUR AMOUNT], OR\n• Deny with specific reasons, OR\n• Explain specific deficiency\n\nContinued requests will result in DOI complaint.\n\nRegards,\n[YOUR NAME]"}};
+const SCRIPTS={1:{title:"Responding to Lowball Offers",script:"PHONE SCRIPT: Responding to Lowball Offer\n\nPREPARATION:\n• Have your claim number ready\n• Have your documented DV amount written down\n• Have their offer amount written down\n• Calculate the percentage: (Their Offer / Your Amount) × 100\n• Be calm, professional, and firm\n\nOPENING:\n\"Hello, this is [YOUR NAME] regarding claim number [CLAIM NUMBER]. I'm calling about the settlement offer I received.\"\n\nIF THEY ASK WHY YOU'RE CALLING:\n\"I received your offer of [THEIR AMOUNT] for my diminished value claim. This represents only [PERCENTAGE]% of the professionally documented diminished value of [YOUR AMOUNT]. I'm calling to discuss why your offer is so far below the professional market analysis.\"\n\nKEY POINTS TO MAKE:\n1. \"My claim is supported by professional analysis from MyFairClaim, including comprehensive market data.\"\n2. \"Your offer doesn't appear to be based on actual market comparisons. Can you explain your methodology?\"\n3. \"I have [NUMBER] comparable vehicle sales showing clear market impact from accident history.\"\n4. \"Professional diminished value assessment requires actual market data, not arbitrary reductions.\"\n\nIF THEY SAY IT'S THEIR \"FINAL OFFER\":\n\"I understand that's your current position, but my claim is supported by professional documentation. I'm requesting you review the comprehensive market analysis provided and provide a revised offer based on actual data.\"\n\nIF THEY REQUEST MORE DOCUMENTATION:\n\"I've provided comprehensive professional analysis. Before I provide anything additional, please explain specifically what aspect of the professional documentation is insufficient.\"\n\nCLOSING OPTIONS:\n\nIf they agree to review:\n\"Thank you. I'll expect your response within [STATE TIMEFRAME] days as required by [STATE] regulations. Please provide either an adjusted offer based on the professional analysis, or detailed justification with supporting market data.\"\n\nIf they refuse to adjust:\n\"I understand your position, but I cannot accept an offer unsupported by market data. I'll be submitting a formal written response rejecting this offer and will pursue all available remedies including a Department of Insurance complaint if necessary.\"\n\nIMPORTANT REMINDERS:\n✓ Stay calm and professional\n✓ Don't accept threats or pressure\n✓ Don't agree to anything on the call\n✓ Take notes of everything discussed\n✓ Get the adjuster's name and direct contact\n✓ Follow up in writing\n✓ DO NOT provide a recorded statement"},2:{title:"Declining Recorded Statements",script:"PHONE SCRIPT: Responding to Recorded Statement Request\n\nPREPARATION:\n• Review your written documentation\n• Have claim number ready\n• Be prepared to politely but firmly decline\n• Stay calm and professional\n\nIF THEY CALL REQUESTING A RECORDED STATEMENT:\n\"Thank you for calling. Before we proceed, I want to clarify - are you requesting a recorded statement?\"\n\nWHEN THEY CONFIRM:\n\"I appreciate you reaching out, but I've provided comprehensive written documentation including professional diminished value analysis, accident details, and repair information. All material information necessary to evaluate my claim is already in your file. What specific information do you need that isn't in the written documentation?\"\n\nIF THEY SAY IT'S \"STANDARD PROCEDURE\":\n\"I understand you may have standard procedures, but my claim is thoroughly documented in writing. Written documentation is more accurate and allows both of us to carefully review the information. If you have specific questions, I'm happy to respond in writing.\"\n\nIF THEY INSIST:\n\"I'm declining to provide a recorded statement at this time. If you believe it's legally required, please send me the specific statute or policy provision requiring it, and I'll review it with my advisor.\"\n\nIF THEY SAY THEY \"NEED TO HEAR YOUR VERSION\":\n\"My version is detailed in the written documentation I provided. The professional reports contain my complete account along with supporting evidence. Is there something specific in the written documentation that's unclear?\"\n\nIF THEY THREATEN TO DENY THE CLAIM:\n\"I understand you're saying that, but I've fully cooperated by providing comprehensive professional documentation. Denying a valid claim because I declined an unnecessary recorded statement would be an improper claim handling practice. I'd be filing a Department of Insurance complaint immediately.\"\n\nIF THEY SAY IT WILL \"SPEED UP THE PROCESS\":\n\"My written documentation should allow you to evaluate the claim efficiently. If there are specific questions slowing the process, please send them in writing and I'll respond promptly.\"\n\nYOUR CLOSING:\n\"I've provided all necessary information in writing. Please proceed with evaluating my claim based on the professional documentation. I expect your decision within [STATE TIMEFRAME] days as required by state law. Thank you.\"\n\nIF YOU'RE UNCERTAIN:\n\"I need to review your request with my advisor. Please send the request in writing including the specific questions you need answered, and I'll respond appropriately within a reasonable timeframe.\"\n\nKEY REMINDERS:\n✓ You have NO legal obligation to provide a recorded statement for a first-party diminished value claim\n✓ Stay polite but firm\n✓ Keep responses short\n✓ Don't get drawn into extended discussion\n✓ End the call professionally\n✓ Document the call immediately after\n✓ Send follow-up email confirming you declined and why"},3:{title:"Addressing Delays",script:"PHONE SCRIPT: Responding to Delay Tactics\n\nPREPARATION:\n• Document all dates of communication\n• List all documentation already provided\n• Calculate days since submission\n• Know your state's timeframe requirements\n• Be firm and direct\n\nYOUR OPENING:\n\"This is [YOUR NAME] regarding claim [NUMBER]. My claim was submitted [NUMBER] days ago, and I'm calling about the ongoing delay in resolution.\"\n\nWHEN THEY RESPOND:\n\"I've provided comprehensive professional documentation including diminished value analysis, valuation reports, and all supporting evidence. I've also responded to every additional request immediately. What specifically is preventing resolution of this claim?\"\n\nIF THEY SAY \"STILL INVESTIGATING\":\n\"What specifically are you investigating? I provided professional market analysis with all supporting data. This is a straightforward diminished value claim with clear documentation. What specific investigation is needed beyond the professional reports?\"\n\nIF THEY SAY \"NEED MORE TIME\":\n\"I submitted this claim [NUMBER] days ago. [STATE] law requires resolution within [TIMEFRAME] days. This claim is overdue. I need to know: Are you accepting, denying, or requesting specific information? General delays are not acceptable.\"\n\nIF THEY REQUEST MORE DOCUMENTATION:\n\"I've provided comprehensive professional analysis. Before I provide anything additional, you need to specifically explain what aspect of the professional documentation is deficient. General requests for 'more information' are delay tactics.\"\n\nIF THEY SAY \"BACKLOG\" OR \"VOLUME\":\n\"Your internal capacity issues are not my concern. State law requires resolution within [TIMEFRAME] days regardless of your workload. My claim is professionally documented and straightforward. This delay appears to be an improper claim handling practice.\"\n\nESCALATION LANGUAGE:\n\"I want to be clear: If this claim is not resolved within 7 days, I will be filing a formal complaint with the [STATE] Department of Insurance citing improper delay tactics, and I will be consulting with an attorney regarding bad faith claim handling.\"\n\nSPECIFIC DEMAND:\n\"I need a commitment right now. Within 7 days, will you: (1) Accept and pay my claim of [AMOUNT], (2) Deny it in writing with specific reasons, or (3) Provide detailed written explanation of what information you lack? Which will it be?\"\n\nIF THEY WON'T COMMIT:\n\"Then I'm putting you on notice: You have 7 days to resolve this claim or face regulatory complaint and potential legal action. I'll be sending written confirmation of this conversation immediately. What is your supervisor's name and contact information?\"\n\nYOUR CLOSING:\n\"To be absolutely clear: I expect resolution within 7 days - either acceptance, formal denial, or detailed written justification. Continued delay will result in immediate Department of Insurance complaint and pursuit of all legal remedies. I'll be documenting this call and sending written confirmation.\"\n\nAFTER THE CALL:\n✓ Document everything discussed\n✓ Send immediate email confirming the conversation\n✓ Note the deadline you gave (7 days from today)\n✓ Prepare DOI complaint in case they continue delays\n✓ Mark your calendar for follow-up\n\nIMPORTANT:\n• Be assertive but professional\n• Don't accept vague promises\n• Demand specific commitments\n• Make consequences clear\n• Follow through on your warnings"},4:{title:"Responding to Comparative Negligence",script:"PHONE SCRIPT: Responding to Comparative Negligence Claim\n\nPREPARATION:\n• Review the accident facts clearly\n• Have police report handy (if any)\n• Know that they already paid your repairs 100%\n• Be confident about the facts\n• Stay calm but assertive\n\nYOUR OPENING:\n\"This is [YOUR NAME] regarding claim [NUMBER]. I'm calling about your assertion of comparative negligence in my diminished value claim.\"\n\nSTATE YOUR POSITION IMMEDIATELY:\n\"I categorically reject any claim that I bear fault for this accident. Your company already accepted 100% liability when you paid for my repairs in full without any reduction for comparative negligence.\"\n\nIF THEY CLAIM IT'S \"DIFFERENT\" FOR DV:\n\"That makes no sense. You can't accept 100% liability for the property damage repairs while claiming I'm partially at fault for consequential damages from that same property damage. Diminished value flows directly from the accident damage you already accepted full responsibility for.\"\n\nIF THEY REFERENCE THE ACCIDENT DETAILS:\n\"Let me be very clear about what happened: [STATE THE FACTS - e.g., 'Your insured ran a red light and struck my vehicle']. Your insured was 100% at fault. If you want to dispute this now, you need to explain why you paid 100% of my repairs.\"\n\nIF THEY SAY THEY'RE \"RE-EVALUATING LIABILITY\":\n\"You already evaluated liability when you paid my repairs. You can't retroactively change your liability determination to avoid paying diminished value. That's improper claim handling. If you believe there's comparative negligence, provide me with:\n1. Specific factual basis for your claim\n2. What traffic violations you allege I committed\n3. Evidence supporting your allegations\n4. Legal authority for applying it only to diminished value and not repairs\"\n\nIF THEY CLAIM \"NEW INFORMATION\":\n\"What new information? I provided the same accident information for both my repair claim and my diminished value claim. Nothing has changed. This appears to be a tactic to reduce payment.\"\n\nIF THEY WON'T BACK DOWN:\n\"Let me be absolutely clear: You accepted 100% liability by paying 100% of my repairs. Diminished value is a direct consequence of that same property damage. You cannot accept full liability for repairs while claiming partial liability for consequential damages. If you proceed with this improper defense, I will:\n1. File an immediate complaint with the Department of Insurance\n2. Report this as bad faith claim handling\n3. Pursue all legal remedies including potential bad faith litigation\"\n\nYOUR CLOSING:\n\"I expect you to withdraw this improper comparative negligence claim within 7 days and process my diminished value claim based on the 100% liability you already accepted. I'll be documenting this call and sending written confirmation.\"\n\nIF THEY REQUEST YOU PROVE LIABILITY:\n\"I already proved liability - you paid 100% of my repairs. The burden is on YOU to prove comparative negligence if you're claiming it now. Provide your evidence or withdraw this defense.\"\n\nAFTER THE CALL:\n✓ Document everything\n✓ Send immediate written response\n✓ Attach any evidence of 100% repair payment\n✓ Make your position crystal clear\n✓ Set 7-day deadline for their response\n\nKEY POINTS:\n• They can't accept 100% liability for repairs then claim comparative negligence for DV\n• This is inconsistent claim handling\n• Burden is on them to prove comparative negligence\n• Don't let them intimidate you\n• Stand firm on the facts"},5:{title:"Challenging Market Value Disputes",script:"PHONE SCRIPT: Responding to Market Value Dispute\n\nPREPARATION:\n• Have your professional reports in front of you\n• Know your documented diminished value amount\n• Know their counter-offer amount\n• Have key facts ready (number of comparables analyzed, methodology used)\n• Be confident in your professional documentation\n\nYOUR OPENING:\n\"This is [YOUR NAME] regarding claim [NUMBER]. I'm calling about your 'internal assessment' that disputes my professionally documented diminished value.\"\n\nSTATE YOUR POSITION:\n\"I reject your internal assessment of [THEIR AMOUNT]. My claim is supported by professional analysis from MyFairClaim that analyzed [NUMBER] comparable vehicle sales and used industry-standard diminished value methodology. Your assessment appears to be arbitrary.\"\n\nIF THEY CLAIM THEIR \"SYSTEM\" CALCULATED IT:\n\"What system? What methodology does your system use? My professional analysis is transparent - it's based on actual market sales data and recognized diminished value calculations. Your 'system' needs to be explained. What's the methodology?\"\n\nWHEN THEY CAN'T EXPLAIN THE METHODOLOGY:\n\"Exactly my point. You're disputing professional market analysis with an unexplained internal number. That's not how diminished value works. You need to either:\n1. Provide detailed methodology showing how you calculated your number\n2. Provide actual comparable sales data supporting your valuation\n3. Provide an independent professional appraisal\n4. Accept my professionally documented amount\"\n\nIF THEY CLAIM YOUR AMOUNT IS \"TOO HIGH\":\n\"Too high compared to what? Show me your market data. My analysis is based on [NUMBER] actual comparable vehicle sales showing clear market impact from accident history. Do you have comparable sales showing otherwise? Or are you just making an arbitrary reduction?\"\n\nIF THEY SAY \"THAT'S WHAT WE PAY\":\n\"What you typically pay is irrelevant. Diminished value is based on actual market impact, not your internal payment guidelines. The market doesn't care about your payment policies. Buyers pay less for accident-damaged vehicles - that's documented in my professional analysis.\"\n\nIF THEY CLAIM DIMINISHED VALUE IS \"MINIMAL\":\n\"Minimal based on what analysis? My professional report shows significant market impact. Buyers specifically avoid vehicles with accident history, and when they do purchase them, they demand substantial discounts. This is documented with real market data in my report.\"\n\nIF THEY OFFER TO \"MEET IN THE MIDDLE\":\n\"I'm not negotiating down from professional market analysis. This isn't a negotiation - it's a claim based on documented market value loss. If you have professional analysis showing a different value, provide it. Otherwise, pay the professionally documented amount.\"\n\nYOUR DEMAND:\n\"Here's what needs to happen: Within 7 days, you either:\n1. Accept my professionally documented diminished value of [YOUR AMOUNT], OR\n2. Provide a complete independent professional appraisal that includes:\n   • Detailed methodology\n   • Actual comparable sales data\n   • Professional appraiser credentials\n   • Line-by-line analysis explaining any difference from my report\n\nAn unexplained internal number is not acceptable.\"\n\nIF THEY REFUSE:\n\"Then I'm putting you on notice: Your refusal to accept professional market documentation while providing no professional support for your position is improper claim handling. I will file a Department of Insurance complaint and pursue all legal remedies. Your internal 'assessment' won't hold up against professional analysis.\"\n\nYOUR CLOSING:\n\"I expect your response within 7 days - either acceptance or professional counter-appraisal. Anything less is improper claim handling. I'll be documenting this call and sending written confirmation.\"\n\nAFTER THE CALL:\n✓ Document their inability to explain methodology\n✓ Send written demand for professional counter-appraisal\n✓ Set clear 7-day deadline\n✓ Emphasize your professional documentation\n✓ Make clear consequences of refusal\n\nKEY POINTS:\n• Your claim is professionally documented\n• They must provide equivalent professional analysis to dispute it\n• Internal systems/guidelines are not professional appraisals\n• Market data beats their opinions\n• Don't negotiate down from professional analysis"},6:{title:"Stopping Excessive Documentation Requests",script:"PHONE SCRIPT: Responding to Excessive Documentation Requests\n\nPREPARATION:\n• List all documents you've already provided\n• Count how many requests they've made\n• Calculate days since original submission\n• Be firm and direct - this is a delay tactic\n• Show you recognize what they're doing\n\nYOUR OPENING:\n\"This is [YOUR NAME] regarding claim [NUMBER]. I'm calling about your [NUMBER]th request for additional documentation. This needs to stop.\"\n\nSTATE THE PATTERN:\n\"I submitted my claim [NUMBER] days ago with comprehensive professional documentation including Enhanced Diminished Value Report, Vehicle Valuation Report, accident documentation, and repair records. Since then, you've made [NUMBER] additional requests. This is clearly a delay tactic.\"\n\nWHEN THEY DEFEND THE REQUESTS:\n\"Let me be specific about what I've already provided: [LIST THE DOCUMENTS]. Everything necessary to evaluate a diminished value claim is in your file. What exactly is missing?\"\n\nIF THEY CLAIM CURRENT REQUEST IS \"NECESSARY\":\n\"Your current request for [CURRENT REQUEST] is [CHECK ONE: already in my initial submission / not relevant to diminished value / not reasonably necessary / something you can obtain yourself]. This is the [NUMBER]th time you've requested something that's either already provided or unnecessary.\"\n\nIF THEY SAY THEY \"JUST NEED THIS ONE MORE THING\":\n\"That's what you said [NUMBER] times ago. You said you needed maintenance records - I provided them. You said you needed more photos - I provided them. You said you needed the repair estimate - I provided it. Each time I comply, there's another request. This is a textbook delay tactic.\"\n\nIF THE REQUEST IS UNREASONABLE:\n\"You're requesting [CURRENT REQUEST]. That's not relevant to diminished value. Diminished value is about market perception of accident history, not [whatever they're requesting]. This request appears designed to delay, not to evaluate the claim.\"\n\nBE DIRECT ABOUT THE DELAY TACTIC:\n\"Let me be absolutely clear: I recognize this pattern. You keep requesting additional documentation to delay payment. Under [STATE] law, information requests must be specific, reasonable, and relevant. Repeated requests for unnecessary information is an improper delay tactic.\"\n\nYOUR ULTIMATUM:\n\"Here's what's going to happen: I will not provide [CURRENT REQUEST] because [explain why - already provided/not relevant/unreasonable/not necessary]. You have everything needed to evaluate this claim. Within 7 days, you will either:\n1. ACCEPT the claim and pay [YOUR AMOUNT]\n2. DENY the claim in writing with specific reasons\n3. Provide a detailed written explanation of what specific information is actually missing\n\nNo more vague requests. No more delay tactics.\"\n\nIF THEY THREATEN TO DENY FOR \"NON-COOPERATION\":\n\"Non-cooperation? I've provided comprehensive professional documentation and responded to [NUMBER] additional requests. I've been fully cooperative. What you're calling 'non-cooperation' is me refusing to participate in further delay tactics. If you deny this claim for 'non-cooperation' after I've provided complete professional documentation, I'll immediately file a Department of Insurance complaint for improper claim handling.\"\n\nYOUR FINAL STATEMENT:\n\"I've provided everything necessary. This pattern of excessive requests ends now. You have 7 days to evaluate the comprehensive documentation in your file and either accept, deny, or explain - in writing - what specific information is missing. Continued delay tactics will result in immediate DOI complaint and pursuit of all legal remedies including bad faith claim handling.\"\n\nYOUR CLOSING:\n\"I need your supervisor's name and contact information. I'm documenting this pattern of delay and will be filing a complaint if this isn't resolved within 7 days. What's your supervisor's name?\"\n\nAFTER THE CALL:\n✓ Document all previous requests you complied with\n✓ Document this latest request and why it's improper\n✓ Send written response refusing further delay\n✓ Set firm 7-day deadline\n✓ Prepare DOI complaint\n✓ Copy supervisor on written response\n\nKEY POINTS:\n• You've been more than cooperative\n• Repeated requests = delay tactic\n• State law protects against this\n• You've provided complete documentation\n• No more requests - time for decision\n• Make consequences clear\n• Don't be intimidated"}};
+let commLogs=[];
+
+function addCommLog() {
+    const date = document.getElementById('logDate').value;
+    const time = document.getElementById('logTime').value;
+    const type = document.getElementById('logType').value;
+    const direction = document.getElementById('logDirection').value;
+    const company = document.getElementById('logCompany').value;
+    const adjuster = document.getElementById('logAdjuster').value;
+    const summary = document.getElementById('logSummary').value;
+    const actions = document.getElementById('logActions').value;
+    const redFlags = document.getElementById('logRedFlags').value;
+    
+    if (!date || !summary) {
+        alert('⚠️ Please enter at least a Date and Summary before adding an entry.');
+        return;
+    }
+    
+    const entry = {
+        id: Date.now(),
+        date,
+        time,
+        type,
+        direction,
+        company,
+        adjuster,
+        summary,
+        actions,
+        redFlags,
+        timestamp: new Date().toISOString()
+    };
+    
+    commLogs.push(entry);
+    displayCommLogs();
+    clearCommLogForm();
+    alert('✅ Entry added to your log!');
+}
+
+function displayCommLogs() {
+    const container = document.getElementById('commLogEntries');
+    const actionsDiv = document.getElementById('commLogActions');
+    
+    if (commLogs.length === 0) {
+        container.innerHTML = '<div style="text-align: center; padding: 40px; color: #94a3b8;"><p style="font-size: 1.1em;">📋 No entries yet</p><p style="margin-top: 10px;">Add your first communication entry above</p></div>';
+        actionsDiv.style.display = 'none';
+        return;
+    }
+    
+    actionsDiv.style.display = 'block';
+    
+    const sortedLogs = [...commLogs].sort((a, b) => new Date(b.date + ' ' + b.time) - new Date(a.date + ' ' + a.time));
+    
+    container.innerHTML = `
+        <h4 style="color: #0f172a; margin-bottom: 20px; font-size: 1.3em;">📝 Your Communication History (${commLogs.length} ${commLogs.length === 1 ? 'entry' : 'entries'})</h4>
+        ${sortedLogs.map(log => `
+            <div style="background: #f8fafc; border: 2px solid #cbd5e1; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 20px; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div>
+                        <div style="font-size: 1.2em; font-weight: 700; color: #0f172a; margin-bottom: 4px;">
+                            ${log.type} - ${log.direction}
+                        </div>
+                        <div style="color: #64748b; font-size: 0.95em;">
+                            📅 ${formatDate(log.date)} ${log.time ? '⏰ ' + log.time : ''}
+                        </div>
+                    </div>
+                    <button onclick="deleteCommLog(${log.id})" style="background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.9em;">
+                        🗑️ Delete
+                    </button>
+                </div>
+                
+                ${log.company ? `<p style="margin-bottom: 8px;"><strong style="color: #475569;">Company:</strong> ${log.company}</p>` : ''}
+                ${log.adjuster ? `<p style="margin-bottom: 8px;"><strong style="color: #475569;">Adjuster:</strong> ${log.adjuster}</p>` : ''}
+                
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #cbd5e1;">
+                    <p style="margin-bottom: 8px;"><strong style="color: #475569;">Summary:</strong></p>
+                    <p style="color: #1e293b; white-space: pre-wrap;">${log.summary}</p>
+                </div>
+                
+                ${log.actions ? `
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #cbd5e1;">
+                        <p style="margin-bottom: 8px;"><strong style="color: #475569;">Action Items:</strong></p>
+                        <p style="color: #1e293b; white-space: pre-wrap;">${log.actions}</p>
+                    </div>
+                ` : ''}
+                
+                ${log.redFlags ? `
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #cbd5e1; background: #fef3c7; margin: 12px -20px -20px -20px; padding: 12px 20px; border-radius: 0 0 6px 6px;">
+                        <p style="margin-bottom: 8px;"><strong style="color: #92400e;">⚠️ Red Flags:</strong></p>
+                        <p style="color: #92400e; white-space: pre-wrap;">${log.redFlags}</p>
+                    </div>
+                ` : ''}
+            </div>
+        `).join('')}
+    `;
+}
+
+function deleteCommLog(id) {
+    if (!confirm('Are you sure you want to delete this entry?')) return;
+    commLogs = commLogs.filter(log => log.id !== id);
+    displayCommLogs();
+}
+
+function clearCommLogForm() {
+    document.getElementById('logDate').value = '';
+    document.getElementById('logTime').value = '';
+    document.getElementById('logType').selectedIndex = 0;
+    document.getElementById('logDirection').selectedIndex = 0;
+    document.getElementById('logCompany').value = '';
+    document.getElementById('logAdjuster').value = '';
+    document.getElementById('logSummary').value = '';
+    document.getElementById('logActions').value = '';
+    document.getElementById('logRedFlags').value = '';
+}
+
+function clearAllLogs() {
+    if (!confirm('⚠️ Delete ALL communication log entries? This cannot be undone.')) return;
+    commLogs = [];
+    displayCommLogs();
+    alert('✅ All entries cleared.');
+}
+
+function downloadAllLogs() {
+    if (commLogs.length === 0) {
+        alert('No entries to download. Add some communications first!');
+        return;
+    }
+    
+    const sortedLogs = [...commLogs].sort((a, b) => new Date(b.date + ' ' + b.time) - new Date(a.date + ' ' + a.time));
+    
+    let text = 'COMMUNICATION LOG - COMPLETE HISTORY\n';
+    text += '=====================================\n';
+    text += `Total Entries: ${commLogs.length}\n`;
+    text += `Generated: ${new Date().toLocaleString()}\n\n`;
+    
+    sortedLogs.forEach((log, index) => {
+        text += `\n--- ENTRY #${sortedLogs.length - index} ---\n`;
+        text += `Date: ${formatDate(log.date)}\n`;
+        text += `Time: ${log.time || 'Not specified'}\n`;
+        text += `Type: ${log.type}\n`;
+        text += `Direction: ${log.direction}\n`;
+        if (log.company) text += `Insurance Company: ${log.company}\n`;
+        if (log.adjuster) text += `Adjuster: ${log.adjuster}\n`;
+        text += `\nSUMMARY:\n${log.summary}\n`;
+        if (log.actions) text += `\nACTION ITEMS:\n${log.actions}\n`;
+        if (log.redFlags) text += `\n⚠️ RED FLAGS:\n${log.redFlags}\n`;
+        text += '\n' + '='.repeat(50) + '\n';
+    });
+    
+    const blob = new Blob([text], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Communication_Log_Complete_${new Date().toISOString().split('T')[0]}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+    alert(`✅ Complete log downloaded!\n\n${commLogs.length} ${commLogs.length === 1 ? 'entry' : 'entries'} saved to your Downloads folder.`);
+}
+
+function formatDate(dateStr) {
+    if (!dateStr) return 'No date';
+    const date = new Date(dateStr + 'T00:00:00');
+    return date.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+// Booking system
+let selectedTimeSlot = null;
+
+function initBookingDates() {
+    const dateSelect = document.getElementById('bookingDate');
+    if (!dateSelect) return;
+    
+    const today = new Date();
+    const options = ['<option value="">Select a date...</option>'];
+    
+    // Generate next 14 weekdays
+    let daysAdded = 0;
+    let currentDate = new Date(today);
+    
+    while (daysAdded < 14) {
+        currentDate.setDate(currentDate.getDate() + 1);
+        const dayOfWeek = currentDate.getDay();
+        
+        // Skip weekends (0 = Sunday, 6 = Saturday)
+        if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+            const dateStr = currentDate.toISOString().split('T')[0];
+            const displayDate = currentDate.toLocaleDateString('en-US', { 
+                weekday: 'short', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+            options.push(`<option value="${dateStr}">${displayDate}</option>`);
+            daysAdded++;
+        }
+    }
+    
+    dateSelect.innerHTML = options.join('');
+}
+
+function loadTimeSlots() {
+    const dateValue = document.getElementById('bookingDate').value;
+    const timeSlotsContainer = document.getElementById('timeSlots');
+    
+    if (!dateValue) {
+        timeSlotsContainer.innerHTML = '<div style="color: #94a3b8; text-align: center; padding: 20px; grid-column: 1 / -1;">Please select a date first</div>';
+        return;
+    }
+    
+    // Define available time slots (9 AM - 5 PM, every 30 minutes)
+    const slots = [
+        '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
+        '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
+        '4:00 PM', '4:30 PM'
+    ];
+    
+    const slotButtons = slots.map(slot => {
+        return `<button type="button" onclick="selectTimeSlot('${slot}')" class="time-slot-btn" data-slot="${slot}" style="background: white; border: 2px solid #cbd5e1; border-radius: 6px; padding: 12px; font-weight: 600; color: #475569; cursor: pointer; transition: all 0.2s; font-family: 'Outfit', sans-serif;">${slot}</button>`;
+    }).join('');
+    
+    timeSlotsContainer.innerHTML = slotButtons;
+}
+
+function selectTimeSlot(slot) {
+    selectedTimeSlot = slot;
+    
+    // Update all slot buttons
+    document.querySelectorAll('.time-slot-btn').forEach(btn => {
+        if (btn.dataset.slot === slot) {
+            btn.style.background = '#3b82f6';
+            btn.style.color = 'white';
+            btn.style.borderColor = '#3b82f6';
+        } else {
+            btn.style.background = 'white';
+            btn.style.color = '#475569';
+            btn.style.borderColor = '#cbd5e1';
+        }
+    });
+}
+
+function submitBooking() {
+    const name = document.getElementById('bookingName').value.trim();
+    const email = document.getElementById('bookingEmail').value.trim();
+    const phone = document.getElementById('bookingPhone').value.trim();
+    const date = document.getElementById('bookingDate').value;
+    const topic = document.getElementById('bookingTopic').value;
+    const notes = document.getElementById('bookingNotes').value.trim();
+    
+    // Validation
+    if (!name || !email || !phone || !date || !selectedTimeSlot || !topic) {
+        alert('⚠️ Please fill in all required fields and select a time slot.');
+        return;
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('⚠️ Please enter a valid email address.');
+        return;
+    }
+    
+    // Format date for display
+    const dateObj = new Date(date + 'T00:00:00');
+    const formattedDate = dateObj.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        month: 'long', 
+        day: 'numeric',
+        year: 'numeric'
+    });
+    
+    // Web3Forms submission
+    const formData = new FormData();
+    formData.append('access_key', 'a32efd39-ac8c-4c74-af83-121bac139889');
+    formData.append('subject', `Consultation Request - ${name}`);
+    formData.append('from_name', 'Insurance Response Guide (IRG)');
+    formData.append('Name', name);
+    formData.append('Email', email);
+    formData.append('Phone', phone);
+    formData.append('Preferred_Date', formattedDate);
+    formData.append('Preferred_Time', selectedTimeSlot);
+    formData.append('Topic', topic);
+    formData.append('Additional_Notes', notes || 'None provided');
+    
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Show confirmation
+            const confirmationDiv = document.getElementById('bookingConfirmation');
+            const detailsDiv = document.getElementById('confirmationDetails');
+            
+            detailsDiv.innerHTML = `
+                <p style="margin-bottom: 8px;"><strong>Requested Date:</strong> ${formattedDate}</p>
+                <p style="margin-bottom: 8px;"><strong>Requested Time:</strong> ${selectedTimeSlot}</p>
+                <p style="margin-bottom: 8px;"><strong>Topic:</strong> ${topic}</p>
+                <p style="margin-top: 16px; font-size: 14px;">We've received your request and will send you a confirmation email at <strong>${email}</strong> within 24 hours to confirm your consultation time.</p>
+            `;
+            
+            confirmationDiv.style.display = 'block';
+            
+            // Hide the form
+            document.getElementById('bookingForm').style.display = 'none';
+            
+            // Scroll to confirmation
+            confirmationDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Show success popup alert
+            setTimeout(() => {
+                alert('✅ Consultation Request Sent!\n\nThank you! We\'ve received your consultation request and will email you at ' + email + ' within 24 hours to confirm your appointment.\n\nCheck your email (including spam folder) for our confirmation.');
+            }, 300);
+        } else {
+            throw new Error(data.message || 'Form submission failed');
+        }
+    })
+    .catch(error => {
+        console.error('Booking error:', error);
+        alert('❌ There was an error submitting your request. Please email us directly at support@myfairclaim.com or call 877-503-3247.');
+    });
+}
+
+let currentTactic=null;
+let currentScript=null;
+document.addEventListener('DOMContentLoaded',function(){
+    setupTabs();
+    displayCommLogs();
+    initBookingDates();
+    
+    // Set date and time to current by default
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('logDate').value = `${year}-${month}-${day}`;
+    document.getElementById('logTime').value = `${hours}:${minutes}`;
+    
+    console.log('Fair Claim Response Playbook™ Ready - 6 response tactics + 6 phone scripts');
+});
+function toggleTimeline(element){
+    const wasCollapsed = element.classList.contains('collapsed');
+    // Collapse all timeline boxes first
+    document.querySelectorAll('.timeline-box').forEach(box => box.classList.add('collapsed'));
+    // Then expand the clicked one if it was previously collapsed
+    if(wasCollapsed) {
+        element.classList.remove('collapsed');
+    }
+}
+function toggleTracker(element){
+    const wasCollapsed = element.classList.contains('collapsed');
+    // Collapse all tracker boxes first
+    document.querySelectorAll('.tracker-box').forEach(box => box.classList.add('collapsed'));
+    // Then expand the clicked one if it was previously collapsed
+    if(wasCollapsed) {
+        element.classList.remove('collapsed');
+    }
+}
+function setupTabs(){document.querySelectorAll('.tab').forEach(tab=>{tab.addEventListener('click',function(){const tabId=this.id.replace('tab-','');showTab(tabId);});});}
+function showTab(tabName){document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('content-'+tabName).classList.add('active');document.getElementById('tab-'+tabName).classList.add('active');window.scrollTo(0,0);}
+function selectTactic(tacticNum){currentTactic=tacticNum;document.querySelectorAll('#content-responses .tactic-card').forEach(card=>card.classList.remove('selected'));event.target.closest('.tactic-card').classList.add('selected');const responseSection=document.getElementById('responseSection');responseSection.classList.add('active');document.getElementById('responseTitle').textContent=RESPONSES[tacticNum].title;updateContent('letter');updateContent('email');updateContent('script');responseSection.scrollIntoView({behavior:'smooth'});}
+function selectFormat(format){document.querySelectorAll('.format-tab').forEach(tab=>tab.classList.remove('active'));event.target.classList.add('active');document.querySelectorAll('.response-content').forEach(content=>content.classList.remove('active'));document.getElementById(format+'Content').classList.add('active');updateContent(format);}
+function updateContent(format){if(!currentTactic)return;let content;if(format==='script'){content=SCRIPTS[currentTactic].script;}else{content=RESPONSES[currentTactic][format];}document.getElementById(format+'Text').textContent=content;}
+function copyResponse(elementId){const text=document.getElementById(elementId).textContent;const docType=elementId.includes('letter')?'Response Letter':'Response Email';navigator.clipboard.writeText(text).then(()=>{alert(`✅ ${docType} Copied!\n\nPaste into your email or word processor using Ctrl+V (Windows) or Cmd+V (Mac).`);}).catch(()=>{alert('❌ Copy failed. Please select the text manually and use Ctrl+C or Cmd+C.');});}
+function downloadResponse(elementId,filename){const text=document.getElementById(elementId).textContent;const blob=new Blob([text],{type:'text/plain'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);alert(`✅ Downloaded as ${filename}!\n\nCheck your Downloads folder. You can open this file in any text editor or word processor.`);}
+
+// Confetti animation
+function triggerConfetti() {
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const confettiPieces = [];
+    const confettiCount = 150;
+    const colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'];
+    
+    class ConfettiPiece {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = -20;
+            this.w = Math.random() * 10 + 5;
+            this.h = Math.random() * 15 + 5;
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.rotation = Math.random() * 360;
+            this.rotationSpeed = Math.random() * 10 - 5;
+            this.speed = Math.random() * 3 + 2;
+            this.sway = Math.random() * 2 - 1;
+        }
+        
+        update() {
+            this.y += this.speed;
+            this.x += this.sway;
+            this.rotation += this.rotationSpeed;
+            
+            if (this.y > canvas.height) {
+                this.y = -20;
+                this.x = Math.random() * canvas.width;
+            }
+        }
+        
+        draw() {
+            ctx.save();
+            ctx.translate(this.x + this.w / 2, this.y + this.h / 2);
+            ctx.rotate((this.rotation * Math.PI) / 180);
+            ctx.fillStyle = this.color;
+            ctx.fillRect(-this.w / 2, -this.h / 2, this.w, this.h);
+            ctx.restore();
+        }
+    }
+    
+    for (let i = 0; i < confettiCount; i++) {
+        confettiPieces.push(new ConfettiPiece());
+    }
+    
+    let animationId;
+    let startTime = Date.now();
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        confettiPieces.forEach(piece => {
+            piece.update();
+            piece.draw();
+        });
+        
+        // Run for 5 seconds
+        if (Date.now() - startTime < 5000) {
+            animationId = requestAnimationFrame(animate);
+        } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    }
+    
+    animate();
+}
+
+// Override showTab to trigger confetti on Complete tab
+const originalShowTab = showTab;
+showTab = function(tabName) {
+    originalShowTab(tabName);
+    
+    if (tabName === 'complete') {
+        const confettiPlayed = sessionStorage.getItem('responseConfettiPlayed');
+        if (!confettiPlayed) {
+            setTimeout(() => {
+                triggerConfetti();
+                sessionStorage.setItem('responseConfettiPlayed', 'true');
+            }, 300);
+        }
+    }
+};
+
+
+    // Format phone number to (123) 456-7890
+    function formatPhone(input) {
+        let value = input.value.replace(/\D/g, '');
+        if (value.length > 0) {
+            if (value.length <= 3) {
+                value = `(${value}`;
+            } else if (value.length <= 6) {
+                value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+            } else {
+                value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
+            }
+        }
+        input.value = value;
+    }
+    
+</script>
+</body>
+</html>
