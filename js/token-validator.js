@@ -27,7 +27,6 @@ class MFCTokenValidator {
         }
         
         try {
-            // Updated to use GET with URL parameter
             const response = await fetch(this.apiEndpoint + '?token=' + encodeURIComponent(this.token), {
                 method: 'GET',
                 headers: { 
@@ -39,3 +38,114 @@ class MFCTokenValidator {
             const data = await response.json();
             
             if (response.ok && data.valid) {
+                this.customerData = {
+                    email: data.customer_email,
+                    tier: data.tier
+                };
+                
+                this.showToolContent();
+                this.prePopulateFields();
+                
+                if (data.expiration_date) {
+                    const expirationDate = new Date(data.expiration_date);
+                    const now = new Date();
+                    const daysRemaining = Math.ceil((expirationDate - now) / (1000 * 60 * 60 * 24));
+                    
+                    if (daysRemaining <= 30 && daysRemaining > 0) {
+                        this.showExpirationWarning(daysRemaining, data.expiration_date);
+                    } else if (daysRemaining <= 0) {
+                        this.showExpiredMessage(data.expiration_date);
+                        return false;
+                    }
+                }
+                
+                return true;
+            } else {
+                this.showAccessDenied(data.message || 'Invalid or revoked access token.');
+                return false;
+            }
+            
+        } catch (error) {
+            console.error('Token validation error:', error);
+            this.showAccessDenied('Unable to verify access. Please contact support at 877-503-3247.');
+            return false;
+        }
+    }
+    
+    showToolContent() {
+        const loadingScreen = document.getElementById('loading-screen');
+        const toolContent = document.getElementById('tool-content');
+        
+        if (loadingScreen) loadingScreen.style.display = 'none';
+        if (toolContent) {
+            toolContent.classList.remove('hidden');
+            toolContent.style.display = 'block';
+        }
+    }
+    
+    showAccessDenied(message) {
+        document.body.innerHTML = `
+            <div style="max-width: 600px; margin: 100px auto; padding: 40px; text-align: center; font-family: 'Outfit', Arial, sans-serif;">
+                <div style="font-size: 64px; margin-bottom: 20px;">🔒</div>
+                <h1 style="color: #E84545; margin-bottom: 20px; font-size: 32px;">Access Denied</h1>
+                <p style="color: #666; font-size: 18px; margin-bottom: 30px;">${message}</p>
+                <a href="https://www.myfairclaim.com/pricing" 
+                   style="display: inline-block; background: #2C5F7C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
+                    View Pricing & Purchase
+                </a>
+            </div>
+        `;
+    }
+    
+    showExpiredMessage(expiredOn) {
+        const expiredDate = new Date(expiredOn).toLocaleDateString();
+        document.body.innerHTML = `
+            <div style="max-width: 600px; margin: 100px auto; padding: 40px; text-align: center; font-family: 'Outfit', Arial, sans-serif;">
+                <div style="font-size: 64px; margin-bottom: 20px;">⏰</div>
+                <h1 style="color: #FFA500; margin-bottom: 20px;">Access Expired</h1>
+                <p style="color: #666; font-size: 18px;">Your access expired on ${expiredDate}.</p>
+                <a href="https://www.myfairclaim.com/extend-access" 
+                   style="display: inline-block; background: #2C5F7C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px;">
+                    Extend Access
+                </a>
+            </div>
+        `;
+    }
+    
+    showExpirationWarning(daysRemaining, expiresOn) {
+        const expireDate = new Date(expiresOn).toLocaleDateString();
+        const banner = document.createElement('div');
+        banner.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(135deg, #FFA500, #FF8C00); color: white; padding: 15px; text-align: center; z-index: 10000;';
+        banner.innerHTML = `
+            <strong>⚠️ Access Expiring Soon!</strong> 
+            Your access expires in <strong>${daysRemaining} days</strong> (${expireDate}).
+            <a href="https://www.myfairclaim.com/extend-access" style="color: white; text-decoration: underline; margin-left: 15px; font-weight: bold;">
+                Extend for 90 More Days →
+            </a>
+        `;
+        document.body.insertBefore(banner, document.body.firstChild);
+    }
+    
+    prePopulateFields() {
+        if (!this.customerData) return;
+        
+        const fieldMap = {
+            'customerEmail': this.customerData.email
+        };
+        
+        for (const [fieldId, value] of Object.entries(fieldMap)) {
+            if (value) {
+                const field = document.getElementById(fieldId) || document.querySelector(`[name="${fieldId}"]`);
+                if (field) {
+                    field.value = value;
+                    field.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            }
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const validator = new MFCTokenValidator();
+    await validator.validate();
+});
