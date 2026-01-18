@@ -1,151 +1,201 @@
 /**
  * MyFairClaim Token Validator
- * Version 2.0 - Updated for WordPress API
+ * Version: 2.0 - AJAX Method (Cross-Domain Compatible)
+ * 
+ * Validates access tokens by calling WordPress AJAX endpoint
+ * Used by: CFG, IRG, IDG HTML tools on testing.myfairclaim.com
+ * API: myfairclaim.com/staging/wp-admin/admin-ajax.php
  */
 
-class MFCTokenValidator {
-    constructor(apiEndpoint) {
-        this.apiEndpoint = apiEndpoint || 'https://myfairclaim.com/staging/wp-json/mfc/v1/validate-token';
-        this.token = this.getTokenFromURL();
-        this.customerData = null;
+(function() {
+    'use strict';
+    
+    console.log('🔒 MyFairClaim Token Validator v2.0 loaded');
+    
+    // Configuration
+    const CONFIG = {
+        AJAX_ENDPOINT: 'https://myfairclaim.com/staging/wp-admin/admin-ajax.php',
+        ACTION: 'validate_token'
+    };
+    
+    /**
+     * Get token from URL parameter
+     */
+    function getTokenFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        
+        console.log('Token from URL:', token ? token.substring(0, 20) + '...' : 'NONE');
+        
+        return token;
     }
     
-    getTokenFromURL() {
-        const params = new URLSearchParams(window.location.search);
-        return params.get('token');
-    }
-    
-    async validate() {
-        if (!this.token) {
-            this.showAccessDenied('No access token provided. Please use the link from your confirmation email.');
-            return false;
+    /**
+     * Validate token via AJAX endpoint
+     */
+    function validateToken(token) {
+        console.log('🔍 Validating token...');
+        
+        if (!token) {
+            showAccessDenied('No access token provided. Please check your email for the correct link.');
+            return;
         }
         
-        if (!/^MFC_[a-f0-9]{64}$/.test(this.token)) {
-            this.showAccessDenied('Invalid token format.');
-            return false;
-        }
+        // Show loading state
+        showLoading();
         
-        try {
-            const response = await fetch(this.apiEndpoint + '?token=' + encodeURIComponent(this.token), {
-                method: 'GET',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            });
+        // Build AJAX URL
+        const url = `${CONFIG.AJAX_ENDPOINT}?action=${CONFIG.ACTION}&token=${encodeURIComponent(token)}`;
+        
+        console.log('Calling AJAX endpoint:', url.substring(0, 100) + '...');
+        
+        // Make AJAX request
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            credentials: 'omit'
+        })
+        .then(response => {
+            console.log('Response status:', response.status);
             
-            const data = await response.json();
-            
-            if (response.ok && data.valid) {
-                this.customerData = {
-                    email: data.customer_email,
-                    tier: data.tier
-                };
-                
-                this.showToolContent();
-                this.prePopulateFields();
-                
-                if (data.expiration_date) {
-                    const expirationDate = new Date(data.expiration_date);
-                    const now = new Date();
-                    const daysRemaining = Math.ceil((expirationDate - now) / (1000 * 60 * 60 * 24));
-                    
-                    if (daysRemaining <= 30 && daysRemaining > 0) {
-                        this.showExpirationWarning(daysRemaining, data.expiration_date);
-                    } else if (daysRemaining <= 0) {
-                        this.showExpiredMessage(data.expiration_date);
-                        return false;
-                    }
-                }
-                
-                return true;
-            } else {
-                this.showAccessDenied(data.message || 'Invalid or revoked access token.');
-                return false;
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
             
-        } catch (error) {
-            console.error('Token validation error:', error);
-            this.showAccessDenied('Unable to verify access. Please contact support at 877-503-3247.');
-            return false;
-        }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Validation response:', data);
+            
+            if (data.success && data.data && data.data.valid) {
+                // Token is valid
+                console.log('✅ Token valid!');
+                console.log('Tier:', data.data.tier);
+                console.log('Email:', data.data.customer_email);
+                console.log('Expires:', data.data.expiration_date);
+                console.log('Access count:', data.data.access_count);
+                
+                showToolContent();
+            } else {
+                // Token is invalid
+                const message = data.data && data.data.message 
+                    ? data.data.message 
+                    : 'Invalid access token. Please check your email for the correct link.';
+                
+                console.log('❌ Token invalid:', message);
+                showAccessDenied(message);
+            }
+        })
+        .catch(error => {
+            console.error('❌ Validation error:', error);
+            showAccessDenied('Unable to validate access token. Please try again or contact support.');
+        });
     }
     
-    showToolContent() {
-        const loadingScreen = document.getElementById('loading-screen');
+    /**
+     * Show loading state
+     */
+    function showLoading() {
+        const accessDenied = document.getElementById('access-denied');
         const toolContent = document.getElementById('tool-content');
         
-        if (loadingScreen) loadingScreen.style.display = 'none';
+        if (accessDenied) {
+            accessDenied.style.display = 'block';
+            accessDenied.innerHTML = `
+                <div style="text-align: center; padding: 60px 20px;">
+                    <div style="display: inline-block; width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid #2563eb; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    <p style="margin-top: 20px; font-size: 18px; color: #64748b;">Validating access token...</p>
+                </div>
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                </style>
+            `;
+        }
+        
         if (toolContent) {
-            toolContent.classList.remove('hidden');
+            toolContent.style.display = 'none';
+        }
+    }
+    
+    /**
+     * Show access denied message
+     */
+    function showAccessDenied(message) {
+        const accessDenied = document.getElementById('access-denied');
+        const toolContent = document.getElementById('tool-content');
+        
+        if (accessDenied) {
+            accessDenied.style.display = 'block';
+            accessDenied.innerHTML = `
+                <div style="max-width: 600px; margin: 60px auto; padding: 40px; text-align: center; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px; color: #dc2626;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h1 style="font-size: 28px; font-weight: 700; color: #0f172a; margin-bottom: 16px; font-family: 'Outfit', sans-serif;">Access Denied</h1>
+                    <p style="font-size: 16px; color: #64748b; margin-bottom: 32px; line-height: 1.6;">${message}</p>
+                    <a href="https://myfairclaim.com/pricing" style="display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; transition: transform 0.2s;">View Pricing & Purchase</a>
+                </div>
+            `;
+        }
+        
+        if (toolContent) {
+            toolContent.style.display = 'none';
+        }
+    }
+    
+    /**
+     * Show tool content
+     */
+    function showToolContent() {
+        const accessDenied = document.getElementById('access-denied');
+        const toolContent = document.getElementById('tool-content');
+        
+        if (accessDenied) {
+            accessDenied.style.display = 'none';
+        }
+        
+        if (toolContent) {
             toolContent.style.display = 'block';
+            console.log('✅ Tool content displayed');
+        } else {
+            console.error('❌ Tool content container not found!');
         }
     }
     
-    showAccessDenied(message) {
-        document.body.innerHTML = `
-            <div style="max-width: 600px; margin: 100px auto; padding: 40px; text-align: center; font-family: 'Outfit', Arial, sans-serif;">
-                <div style="font-size: 64px; margin-bottom: 20px;">🔒</div>
-                <h1 style="color: #E84545; margin-bottom: 20px; font-size: 32px;">Access Denied</h1>
-                <p style="color: #666; font-size: 18px; margin-bottom: 30px;">${message}</p>
-                <a href="https://www.myfairclaim.com/pricing" 
-                   style="display: inline-block; background: #2C5F7C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold;">
-                    View Pricing & Purchase
-                </a>
-            </div>
-        `;
-    }
-    
-    showExpiredMessage(expiredOn) {
-        const expiredDate = new Date(expiredOn).toLocaleDateString();
-        document.body.innerHTML = `
-            <div style="max-width: 600px; margin: 100px auto; padding: 40px; text-align: center; font-family: 'Outfit', Arial, sans-serif;">
-                <div style="font-size: 64px; margin-bottom: 20px;">⏰</div>
-                <h1 style="color: #FFA500; margin-bottom: 20px;">Access Expired</h1>
-                <p style="color: #666; font-size: 18px;">Your access expired on ${expiredDate}.</p>
-                <a href="https://www.myfairclaim.com/extend-access" 
-                   style="display: inline-block; background: #2C5F7C; color: white; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 20px;">
-                    Extend Access
-                </a>
-            </div>
-        `;
-    }
-    
-    showExpirationWarning(daysRemaining, expiresOn) {
-        const expireDate = new Date(expiresOn).toLocaleDateString();
-        const banner = document.createElement('div');
-        banner.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(135deg, #FFA500, #FF8C00); color: white; padding: 15px; text-align: center; z-index: 10000;';
-        banner.innerHTML = `
-            <strong>⚠️ Access Expiring Soon!</strong> 
-            Your access expires in <strong>${daysRemaining} days</strong> (${expireDate}).
-            <a href="https://www.myfairclaim.com/extend-access" style="color: white; text-decoration: underline; margin-left: 15px; font-weight: bold;">
-                Extend for 90 More Days →
-            </a>
-        `;
-        document.body.insertBefore(banner, document.body.firstChild);
-    }
-    
-    prePopulateFields() {
-        if (!this.customerData) return;
+    /**
+     * Initialize validator
+     */
+    function init() {
+        console.log('🚀 Initializing token validator...');
         
-        const fieldMap = {
-            'customerEmail': this.customerData.email
-        };
+        // Check if required elements exist
+        const accessDenied = document.getElementById('access-denied');
+        const toolContent = document.getElementById('tool-content');
         
-        for (const [fieldId, value] of Object.entries(fieldMap)) {
-            if (value) {
-                const field = document.getElementById(fieldId) || document.querySelector(`[name="${fieldId}"]`);
-                if (field) {
-                    field.value = value;
-                    field.dispatchEvent(new Event('change', { bubbles: true }));
-                }
-            }
+        if (!accessDenied || !toolContent) {
+            console.error('❌ Required HTML elements not found!');
+            console.error('Expected: <div id="access-denied"> and <div id="tool-content">');
+            return;
         }
+        
+        // Get token and validate
+        const token = getTokenFromURL();
+        validateToken(token);
     }
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const validator = new MFCTokenValidator();
-    await validator.validate();
-});
+    
+    // Run when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    
+})();
