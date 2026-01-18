@@ -1,6 +1,6 @@
 /**
  * MyFairClaim Token Validator
- * Version: 2.0 - AJAX Method (Cross-Domain Compatible)
+ * Version: 2.1 - AJAX Method (Compatible with existing HTML structure)
  * 
  * Validates access tokens by calling WordPress AJAX endpoint
  * Used by: CFG, IRG, IDG HTML tools on testing.myfairclaim.com
@@ -10,7 +10,7 @@
 (function() {
     'use strict';
     
-    console.log('🔒 MyFairClaim Token Validator v2.0 loaded');
+    console.log('🔒 MyFairClaim Token Validator v2.1 loaded');
     
     // Configuration
     const CONFIG = {
@@ -41,8 +41,8 @@
             return;
         }
         
-        // Show loading state
-        showLoading();
+        // Loading screen is already showing by default
+        console.log('Loading screen visible...');
         
         // Build AJAX URL
         const url = `${CONFIG.AJAX_ENDPOINT}?action=${CONFIG.ACTION}&token=${encodeURIComponent(token)}`;
@@ -96,58 +96,32 @@
     }
     
     /**
-     * Show loading state
-     */
-    function showLoading() {
-        const accessDenied = document.getElementById('access-denied');
-        const toolContent = document.getElementById('tool-content');
-        
-        if (accessDenied) {
-            accessDenied.style.display = 'block';
-            accessDenied.innerHTML = `
-                <div style="text-align: center; padding: 60px 20px;">
-                    <div style="display: inline-block; width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid #2563eb; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                    <p style="margin-top: 20px; font-size: 18px; color: #64748b;">Validating access token...</p>
-                </div>
-                <style>
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                </style>
-            `;
-        }
-        
-        if (toolContent) {
-            toolContent.style.display = 'none';
-        }
-    }
-    
-    /**
      * Show access denied message
      */
     function showAccessDenied(message) {
-        const accessDenied = document.getElementById('access-denied');
+        const loadingScreen = document.getElementById('loading-screen');
         const toolContent = document.getElementById('tool-content');
         
-        if (accessDenied) {
-            accessDenied.style.display = 'block';
-            accessDenied.innerHTML = `
-                <div style="max-width: 600px; margin: 60px auto; padding: 40px; text-align: center; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        console.log('Showing access denied message');
+        
+        if (loadingScreen) {
+            loadingScreen.style.display = 'flex';
+            loadingScreen.innerHTML = `
+                <div style="text-align: center; font-family: 'Outfit', Arial, sans-serif; max-width: 500px; padding: 40px 20px;">
                     <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                         <svg xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px; color: #dc2626;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </div>
-                    <h1 style="font-size: 28px; font-weight: 700; color: #0f172a; margin-bottom: 16px; font-family: 'Outfit', sans-serif;">Access Denied</h1>
-                    <p style="font-size: 16px; color: #64748b; margin-bottom: 32px; line-height: 1.6;">${message}</p>
+                    <h2 style="color: #0f172a; font-size: 28px; font-weight: 700; margin-bottom: 16px;">Access Denied</h2>
+                    <p style="color: #64748b; font-size: 16px; margin-bottom: 32px; line-height: 1.6;">${message}</p>
                     <a href="https://myfairclaim.com/pricing" style="display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; transition: transform 0.2s;">View Pricing & Purchase</a>
                 </div>
             `;
         }
         
         if (toolContent) {
-            toolContent.style.display = 'none';
+            toolContent.classList.add('hidden');
         }
     }
     
@@ -155,15 +129,18 @@
      * Show tool content
      */
     function showToolContent() {
-        const accessDenied = document.getElementById('access-denied');
+        const loadingScreen = document.getElementById('loading-screen');
         const toolContent = document.getElementById('tool-content');
         
-        if (accessDenied) {
-            accessDenied.style.display = 'none';
+        console.log('Showing tool content...');
+        
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+            console.log('✅ Loading screen hidden');
         }
         
         if (toolContent) {
-            toolContent.style.display = 'block';
+            toolContent.classList.remove('hidden');
             console.log('✅ Tool content displayed');
         } else {
             console.error('❌ Tool content container not found!');
@@ -177,14 +154,16 @@
         console.log('🚀 Initializing token validator...');
         
         // Check if required elements exist
-        const accessDenied = document.getElementById('access-denied');
+        const loadingScreen = document.getElementById('loading-screen');
         const toolContent = document.getElementById('tool-content');
         
-        if (!accessDenied || !toolContent) {
+        if (!loadingScreen || !toolContent) {
             console.error('❌ Required HTML elements not found!');
-            console.error('Expected: <div id="access-denied"> and <div id="tool-content">');
+            console.error('Expected: <div id="loading-screen"> and <div id="tool-content">');
             return;
         }
+        
+        console.log('✅ HTML structure verified');
         
         // Get token and validate
         const token = getTokenFromURL();
